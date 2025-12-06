@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/cubit/cubit/azkar_cubit.dart';
 import 'package:hisn_almuslim/features/al%20azkar/screen/zekr_details_screen.dart';
-import 'package:hisn_almuslim/presentation/widgets/azkar_app_bar.dart';
+import 'package:hisn_almuslim/features/al%20azkar/widgets/azkar_app_bar.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_card_widget.dart';
 import 'package:hisn_almuslim/shared/app_text.dart';
 

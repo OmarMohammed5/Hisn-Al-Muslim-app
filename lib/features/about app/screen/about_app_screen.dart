@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hisn_almuslim/presentation/widgets/app_logo.dart';
+import 'package:hisn_almuslim/shared/app_logo.dart';
 import 'package:hisn_almuslim/features/about%20app/widgets/defination_of_app.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
 import 'package:hisn_almuslim/shared/app_text.dart';

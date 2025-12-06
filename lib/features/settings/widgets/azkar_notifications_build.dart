@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/cubit/cubit/notification_cubit.dart';
-import 'package:hisn_almuslim/presentation/widgets/list_tile_widget.dart';
+import 'package:hisn_almuslim/features/settings/widgets/list_tile_widget.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
 import 'package:hisn_almuslim/shared/app_text.dart';
 
