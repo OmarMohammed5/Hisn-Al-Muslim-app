@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hisn_almuslim/presentation/widgets/bottom_nav_bar_widget.dart';
+import 'package:hisn_almuslim/presentation/widgets/root.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

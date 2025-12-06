@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
-import 'package:hisn_almuslim/presentation/widgets/bottom_nav_bar_widget.dart';
+import 'package:hisn_almuslim/presentation/widgets/root.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
 import 'package:hisn_almuslim/theme/app_text.dart';
 import 'package:introduction_screen/introduction_screen.dart';

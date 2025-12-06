@@ -7,7 +7,7 @@ import 'package:hisn_almuslim/core/cubit/cubit/theme_cubit.dart';
 import 'package:hisn_almuslim/core/service/notification_service.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hisn_almuslim/presentation/screens/welcome_screen.dart';
-import 'package:hisn_almuslim/presentation/widgets/bottom_nav_bar_widget.dart';
+import 'package:hisn_almuslim/presentation/widgets/root.dart';
 import 'package:hisn_almuslim/theme/app_themes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest.dart' as tzdata;
