@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:hisn_almuslim/presentation/screens/hamd_screen.dart';
-import 'package:hisn_almuslim/presentation/screens/shahada_screen.dart';
-import 'package:hisn_almuslim/presentation/screens/takbeer_screen.dart';
-import 'package:hisn_almuslim/presentation/screens/tasbeeh_screen.dart';
+import 'package:hisn_almuslim/features/al%20hamd/screen/hamd_screen.dart';
+import 'package:hisn_almuslim/features/al%20shahada/screen/shahada_screen.dart';
+import 'package:hisn_almuslim/features/al%20takbeer/screen/takbeer_screen.dart';
+import 'package:hisn_almuslim/features/al%20tasbeeh/screen/tasbeeh_screen.dart';
 
 class ZekrModel {
   final String title;

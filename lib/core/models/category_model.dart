@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
-import 'package:hisn_almuslim/presentation/screens/evening_azkar_screen.dart';
-import 'package:hisn_almuslim/presentation/screens/morning_azkar_screen.dart';
-import 'package:hisn_almuslim/presentation/screens/alazkar_screen.dart';
-import 'package:hisn_almuslim/presentation/screens/prayer_screen.dart';
-import 'package:hisn_almuslim/presentation/screens/sleeping_azkar_screen.dart';
-import 'package:hisn_almuslim/presentation/screens/zekr_allah_screen.dart';
+import 'package:hisn_almuslim/features/evening%20azkar/screen/evening_azkar_screen.dart';
+import 'package:hisn_almuslim/features/morning%20azkar/screen/morning_azkar_screen.dart';
+import 'package:hisn_almuslim/features/al%20azkar/screen/alazkar_screen.dart';
+import 'package:hisn_almuslim/features/prayer/screen/prayer_screen.dart';
+import 'package:hisn_almuslim/features/sleeping%20azkar/screen/sleeping_azkar_screen.dart';
+import 'package:hisn_almuslim/features/al%20zekr/screen/zekr_allah_screen.dart';
 
 class CategoryModel {
   final String title;
