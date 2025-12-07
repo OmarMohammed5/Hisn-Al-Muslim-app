@@ -23,6 +23,7 @@ class ZekrAllahScreen extends StatelessWidget {
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(12),
+
                 child: Column(
                   children: [
                     // Gap(20),

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hisn_almuslim/features/al%20shahada/widgets/content_of_shahada.dart';
-import 'package:hisn_almuslim/theme/app_colors.dart';
+import 'package:gap/gap.dart';
+import 'package:hisn_almuslim/features/al%20zekr/widgets/content_of_esteghfar.dart';
 import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/theme/app_colors.dart';
 
-class ShahadaScreen extends StatelessWidget {
-  const ShahadaScreen({super.key});
+class EsteghfarScreen extends StatelessWidget {
+  const EsteghfarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +17,21 @@ class ShahadaScreen extends StatelessWidget {
         scrolledUnderElevation: 0,
         centerTitle: true,
         title: AppText(
-          "لا إله إلا اللّٰه",
+          "أستغفر اللّٰه",
           fontSize: 22,
           color: Colors.white,
           fontWeight: FontWeight.bold,
         ),
       ),
       body: SingleChildScrollView(
-        child: Center(child: ContentOfShahada(isDark: isDark)),
+        child: Center(
+          child: Column(
+            children: [
+              ContentOfEsteghfar(isDark: isDark),
+              Gap(20),
+            ],
+          ),
+        ),
       ),
     );
   }

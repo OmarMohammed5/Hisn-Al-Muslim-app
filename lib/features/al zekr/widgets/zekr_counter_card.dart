@@ -18,7 +18,7 @@ class ZekrCounterCard extends StatelessWidget {
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    // final screenH = MediaQuery.of(context).size.height;
+    final screenH = MediaQuery.of(context).size.height;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final screenW = MediaQuery.of(context).size.width;
 
@@ -30,8 +30,9 @@ class ZekrCounterCard extends StatelessWidget {
             context.read<CounterCubit>().add(index);
           },
           child: Container(
-            width: screenW * 0.45,
-            padding: EdgeInsets.all(8),
+            height: screenH * 0.66,
+            width: screenW * 0.46,
+            padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: isDark ? Colors.grey[850] : Colors.white,
               borderRadius: BorderRadius.circular(12),
@@ -43,37 +44,41 @@ class ZekrCounterCard extends StatelessWidget {
                 ),
               ],
             ),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 4,
-                        vertical: 4,
-                      ),
-                      child: GestureDetector(
-                        onTap: onTap,
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Icon(
-                            Icons.info_outline_rounded,
-                            size: 22,
-                            color: Colors.teal.shade800,
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 4,
+                          vertical: 4,
+                        ),
+                        child: GestureDetector(
+                          onTap: onTap,
+                          child: Align(
+                            alignment: Alignment.topLeft,
+                            child: Icon(
+                              Icons.info_outline_rounded,
+                              size: 22,
+                              color: Colors.teal.shade800,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Gap(10),
-                AppText(title, fontSize: 16, maxLines: 3),
-                Gap(15),
-                Divider(color: Colors.grey, indent: 35, endIndent: 35),
-                Gap(5),
-                AppText("$count", fontSize: 14),
-                Gap(10),
-              ],
+                    ],
+                  ),
+                  Gap(10),
+                  AppText(title, fontSize: 16, maxLines: 3),
+                  Gap(15),
+                  Divider(color: Colors.grey, indent: 35, endIndent: 35),
+                  Gap(5),
+                  AppText("$count", fontSize: 14),
+                  Gap(10),
+                ],
+              ),
             ),
           ),
         );

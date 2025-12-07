@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hisn_almuslim/features/al%20takbeer/widgets/content_of_takbeer.dart';
+import 'package:hisn_almuslim/features/al%20zekr/widgets/content_of_takbeer.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
 import 'package:hisn_almuslim/shared/app_text.dart';
 

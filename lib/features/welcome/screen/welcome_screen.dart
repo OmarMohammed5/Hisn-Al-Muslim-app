@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 import 'package:hisn_almuslim/root.dart';
+import 'package:hisn_almuslim/shared/app_logo.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
 import 'package:hisn_almuslim/shared/app_text.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -44,62 +45,12 @@ class WelcomeScreen extends StatelessWidget {
             child: AppText(
               "تعرف على أذكارك اليومية بطريقة سهلة ومنظمة",
               color: isDark ? Colors.white54 : Colors.black54,
-              fontSize: 16,
+              fontSize: 17,
               fontWeight: FontWeight.w500,
               maxLines: 6,
             ),
           ),
-          image:
-              //  Padding(
-              //   padding: EdgeInsets.only(top: 100),
-              //   child: Center(
-              //     child: Container(
-              //       decoration: BoxDecoration(
-              //         shape: BoxShape.circle,
-              //         color: Colors.grey.withValues(alpha: 0.4),
-              //         gradient: LinearGradient(
-              //           colors: [
-              //             AppColors.kIconColor,
-              //             Colors.grey.withValues(alpha: 0.4),
-              //             Colors.green.withValues(alpha: 0.4),
-              //             AppColors.kIconColor,
-              //           ],
-              //           begin: Alignment.topLeft,
-              //           end: Alignment.bottomRight,
-              //         ),
-              //       ),
-              //       child: Image.asset(
-              //         'assets/images/hisn almuslim.png',
-              //         height: 200,
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              Padding(
-                padding: EdgeInsets.only(top: 150),
-                child: Center(
-                  child: Container(
-                    width: 150,
-                    padding: EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 6,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: Image.asset(
-                      'assets/images/hisn almuslim.png',
-                      width: 140,
-                    ),
-                  ),
-                ),
-              ),
+          image: AppLogo(),
         ),
 
         // Zekr Allah
@@ -118,7 +69,7 @@ class WelcomeScreen extends StatelessWidget {
             child: AppText(
               "استخدم العداد لتسبيح واستغفار مريح وبسيط",
               color: isDark ? Colors.white54 : Colors.black54,
-              fontSize: 16,
+              fontSize: 17,
               fontWeight: FontWeight.w500,
               maxLines: 6,
             ),
@@ -151,7 +102,7 @@ class WelcomeScreen extends StatelessWidget {
             child: AppText(
               "ابحث عن أي ذكر بسهولة داخل التطبيق",
               color: isDark ? Colors.white54 : Colors.black54,
-              fontSize: 16,
+              fontSize: 17,
               fontWeight: FontWeight.w500,
               maxLines: 6,
             ),
@@ -177,17 +128,28 @@ class WelcomeScreen extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
           bodyWidget: Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: AppText(
-              "فعّل التنبيهات لتصلك أذكار الصباح والمساء في أوقاتها.\n\n"
-              "☀️ إشعار الصباح يذكّرك بالأذكار عند بداية يومك.\n"
-              "🌙 إشعار المساء يذكّرك بذكر الله قبل النوم.\n\n"
-              "يمكنك تفعيل أو إيقاف الإشعارات من إعدادات التطبيق في أي وقت.",
-              color: isDark ? Colors.white54 : Colors.black54,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              height: 1.6,
-              maxLines: 30,
+            padding: const EdgeInsets.only(top: 10, right: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AppText(
+                  "فعّل التنبيهات لتصلك أذكار الصباح والمساء في أوقاتها.",
+                  color: isDark ? Colors.white54 : Colors.black54,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                  height: 1.7,
+                  maxLines: 30,
+                ),
+                AppText(
+                  "يمكنك تفعيل أو إيقاف الإشعارات من إعدادات التطبيق في أي وقت.",
+                  color: isDark ? Colors.white54 : Colors.black54,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                  height: 1.7,
+                  maxLines: 30,
+                ),
+              ],
             ),
           ),
           image: Padding(
