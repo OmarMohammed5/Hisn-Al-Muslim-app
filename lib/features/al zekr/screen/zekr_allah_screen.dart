@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/cubit/cubit/counter_cubit.dart';
 import 'package:hisn_almuslim/features/al%20zekr/widgets/app_bar_zekr.dart';
 import 'package:hisn_almuslim/features/al%20zekr/widgets/card_widget.dart';
@@ -15,18 +14,26 @@ class ZekrAllahScreen extends StatelessWidget {
       create: (context) => CounterCubit(),
       child: Scaffold(
         appBar: AppBarZekr(),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Gap(20),
+        body: Column(
+          children: [
+            /// Banner of Counter
+            CardWidget(),
 
-              /// Banner of Counter
-              CardWidget(),
+            /// Zekr Counter Build
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  children: [
+                    // Gap(20),
+                    ZekrCounterBuild(),
 
-              /// Zekr Counter Build
-              ZekrCounterBuild(),
-            ],
-          ),
+                    // Button to provide for user possible add zekr from user
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
