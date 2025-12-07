@@ -73,8 +73,8 @@ class _RootState extends State<Root> {
       ],
       decoration: NavBarDecoration(
         borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(200),
-          topRight: Radius.circular(200),
+          topLeft: Radius.circular(100),
+          topRight: Radius.circular(100),
         ),
         colorBehindNavBar: isDark
             ? Colors.grey.shade900

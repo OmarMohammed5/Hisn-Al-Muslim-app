@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Gap(10),
             BannersWidget(),
-            Gap(20),
+            Gap(5),
 
             /// Card View
             GridView.builder(

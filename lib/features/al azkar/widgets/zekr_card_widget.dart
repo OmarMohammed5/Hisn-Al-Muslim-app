@@ -37,7 +37,7 @@ class ZekrCardWidget extends StatelessWidget {
                   children: [
                     Center(
                       child: Image.asset(
-                        "assets/images/hisn almuslim.png",
+                        "assets/images/decoor.png",
                         fit: BoxFit.cover,
                         width: 50,
                       ),
