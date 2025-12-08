@@ -26,12 +26,17 @@ class ZekrInfoRow extends StatelessWidget {
             fontFamily: "Amiri Quran",
             fontSize: 15,
             height: 1.6,
+            fontWeight: FontWeight.w700,
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: CustomText("إغلاق", color: Colors.green.shade600),
+            child: CustomText(
+              "إغلاق",
+              color: Colors.green.shade800,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ],
       ),
