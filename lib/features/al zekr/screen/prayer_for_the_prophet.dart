@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/features/al%20zekr/widgets/content_of_prayer.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
 
 class PrayerForTheProphet extends StatelessWidget {
@@ -16,7 +16,7 @@ class PrayerForTheProphet extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.white, size: 25),
         scrolledUnderElevation: 0,
         centerTitle: true,
-        title: AppText(
+        title: CustomText(
           "صلي على محمد ﷺ",
           fontSize: 22,
           color: Colors.white,

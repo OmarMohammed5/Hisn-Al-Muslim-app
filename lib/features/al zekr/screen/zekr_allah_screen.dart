@@ -22,7 +22,7 @@ class ZekrAllahScreen extends StatelessWidget {
             /// Zekr Counter Build
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.all(6),
 
                 child: Column(
                   children: [

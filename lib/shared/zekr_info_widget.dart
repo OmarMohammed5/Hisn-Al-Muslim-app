@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class ZekrInfoWidget extends StatelessWidget {
   final Map<String, dynamic> zekr;
@@ -18,7 +18,7 @@ class ZekrInfoWidget extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (_) => AlertDialog(
-                  title: AppText(
+                  title: CustomText(
                     "معلومات إضافية",
                     color: Colors.teal.shade800,
                     fontSize: 16,
@@ -42,7 +42,7 @@ class ZekrInfoWidget extends StatelessWidget {
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),
-                      child: AppText("إغلاق", color: Colors.green.shade600),
+                      child: CustomText("إغلاق", color: Colors.green.shade600),
                     ),
                   ],
                 ),
@@ -60,7 +60,7 @@ class ZekrInfoWidget extends StatelessWidget {
               color: Colors.teal.shade800,
               borderRadius: BorderRadius.circular(6),
             ),
-            child: AppText(
+            child: CustomText(
               "عدد التكرار : ${zekr['count']}",
               color: Colors.white,
               fontSize: 15,

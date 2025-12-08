@@ -46,19 +46,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             // Azkar Notifications
             AzkarNotificationsBuild(),
 
-            /// Sound of Notification
-            // Gap(15),
-            // GestureDetector(
-            //   onTap: () {
-            //     //// Show Alert Dialog
-            //   },
-            //   child: ListTileWidget(
-            //     icon: Icons.notifications_active,
-            //     title: "صوت تنبيه الأذكار",
-            //     subTitle: AppText("تسبيح", color: Colors.teal, fontSize: 12),
-            //     trailing: Icon(Icons.arrow_forward_ios_rounded, size: 20),
-            //   ),
-            // ),
             Gap(15),
             Divider(
               color: isDark ? Colors.white24 : Colors.black26,

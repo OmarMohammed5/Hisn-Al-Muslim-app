@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/shared/app_logo.dart';
 import 'package:hisn_almuslim/features/about%20app/widgets/defination_of_app.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class AboutAppScreen extends StatelessWidget {
   const AboutAppScreen({super.key});
@@ -15,7 +15,7 @@ class AboutAppScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
-        title: const AppText(
+        title: const CustomText(
           "عن التطبيق",
           color: Colors.white,
           fontSize: 20,
@@ -32,7 +32,7 @@ class AboutAppScreen extends StatelessWidget {
           children: [
             AppLogo(), // bigger logo
             const Gap(30),
-            AppText(
+            CustomText(
               "حصن المسلم",
               fontSize: 28,
               fontWeight: FontWeight.bold,

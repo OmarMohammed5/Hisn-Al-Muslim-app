@@ -15,7 +15,11 @@ class AppLogo extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(32),
           boxShadow: [
-            BoxShadow(color: Colors.grey, blurRadius: 6, offset: Offset(0, 2)),
+            BoxShadow(
+              color: Colors.black12.withValues(alpha: 0.4),
+              blurRadius: 8,
+              offset: Offset(0, 2),
+            ),
           ],
         ),
         child: Image.asset('assets/images/hisn almuslim.png', width: 140),

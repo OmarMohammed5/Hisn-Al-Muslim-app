@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/cubit/cubit/counter_cubit.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CardWidget extends StatefulWidget {
@@ -89,21 +89,70 @@ class _CardWidgetState extends State<CardWidget> {
                       ),
                     ),
                     Gap(20),
-                    Container(
-                      width: 120,
-                      height: 125,
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: Colors.teal, width: 4),
-                      ),
-                      child: Center(
-                        child: AppText(
-                          "$displayTotal",
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 6,
+                      children: [
+                        Container(
+                          width: 120,
+                          height: 125,
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.teal, width: 4),
+                          ),
+                          child: Center(
+                            child: CustomText(
+                              "$displayTotal",
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                      ),
+
+                        GestureDetector(
+                          onTap: () async {
+                            // reset cubit
+
+                            context.read<CounterCubit>().reset();
+
+                            // reset saved value
+
+                            final prefs = await SharedPreferences.getInstance();
+                            await prefs.setInt("totalCount", 0);
+
+                            // To update a last value  saved
+                            setState(() {
+                              savedTotal = 0;
+                            });
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 30),
+                            child: Container(
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.teal.shade700,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black26,
+                                    blurRadius: 8,
+                                    offset: Offset(0, 2),
+                                  ),
+                                ],
+                              ),
+                              child: Icon(
+                                Icons.restart_alt,
+                                color: Colors.white,
+                                size: 25,
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        // Gap(20),
+                      ],
                     ),
                   ],
                 ),

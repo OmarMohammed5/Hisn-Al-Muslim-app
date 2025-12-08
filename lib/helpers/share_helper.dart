@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
@@ -49,7 +49,10 @@ class ShareHelper {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: Colors.red.shade700,
-          content: AppText('حدث خطأ أثناء مشاركة الصورة', color: Colors.white),
+          content: CustomText(
+            'حدث خطأ أثناء مشاركة الصورة',
+            color: Colors.white,
+          ),
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),

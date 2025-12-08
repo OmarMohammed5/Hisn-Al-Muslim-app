@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class ZekrHeader extends StatelessWidget {
   final int currentIndex;
@@ -21,14 +21,14 @@ class ZekrHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const AppText("الذكر ", fontSize: 16, fontWeight: FontWeight.bold),
-          AppText(
+          const CustomText("الذكر ", fontSize: 16, fontWeight: FontWeight.bold),
+          CustomText(
             "${currentIndex + 1}",
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
-          const AppText(" من ", fontSize: 16, fontWeight: FontWeight.bold),
-          AppText("$total", fontSize: 16, fontWeight: FontWeight.bold),
+          const CustomText(" من ", fontSize: 16, fontWeight: FontWeight.bold),
+          CustomText("$total", fontSize: 16, fontWeight: FontWeight.bold),
         ],
       ),
     );

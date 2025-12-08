@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/cubit/cubit/notification_cubit.dart';
 import 'package:hisn_almuslim/features/settings/widgets/list_tile_widget.dart';
+import 'package:hisn_almuslim/shared/custom_snack_bar.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class AzkarNotificationsBuild extends StatelessWidget {
   const AzkarNotificationsBuild({super.key});
@@ -17,7 +18,7 @@ class AzkarNotificationsBuild extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Align(
             alignment: Alignment.centerRight,
-            child: AppText(
+            child: CustomText(
               "منبهات الأذكار",
               color: AppColors.kIconColor,
               fontSize: 18,
@@ -46,20 +47,17 @@ class AzkarNotificationsBuild extends StatelessWidget {
                     onChanged: (value) {
                       context.read<NotificationCubit>().toggleMorning(value);
                       final message = value
-                          ? "تم تشغيل أذكار الصباح  🌤️"
-                          : "تم إيقاف أذكار الصباح  ⏰";
+                          ? "تم تشغيل أذكار الصباح  "
+                          : "تم إيقاف أذكار الصباح  ";
 
                       // To display message
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          backgroundColor: value
-                              ? Colors.teal.shade700
-                              : Colors.red.shade700,
-                          content: AppText(message, color: Colors.white),
-                          behavior: SnackBarBehavior.floating,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
+                        customSnackBar(
+                          message,
+                          value ? Colors.teal.shade700 : Colors.red.shade700,
+                          value
+                              ? Icons.sunny
+                              : Icons.notifications_off_outlined,
                         ),
                       );
                       // print("=========== أذكار الصباح ========== : $value");
@@ -70,8 +68,8 @@ class AzkarNotificationsBuild extends StatelessWidget {
                   ListTileWidget(
                     icon: Icons.access_time,
                     title: 'وقت أذكار الصباح',
-                    trailing: AppText(
-                      "7:00 ص",
+                    trailing: CustomText(
+                      "5:30 ص",
                       color: AppColors.kIconColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
@@ -93,19 +91,16 @@ class AzkarNotificationsBuild extends StatelessWidget {
                       context.read<NotificationCubit>().toggleEvening(value);
 
                       final message = value
-                          ? "تم تشغيل أذكار المساء  🌙"
-                          : "تم إيقاف أذكار المساء  ⏰";
+                          ? "تم تشغيل أذكار المساء  "
+                          : "تم إيقاف أذكار المساء  ";
 
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          backgroundColor: value
-                              ? Colors.teal.shade700
-                              : Colors.red.shade700,
-                          content: AppText(message, color: Colors.white),
-                          behavior: SnackBarBehavior.floating,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
+                        customSnackBar(
+                          message,
+                          value ? Colors.teal.shade700 : Colors.red.shade700,
+                          value
+                              ? Icons.dark_mode_outlined
+                              : Icons.notifications_off_outlined,
                         ),
                       );
 
@@ -117,8 +112,8 @@ class AzkarNotificationsBuild extends StatelessWidget {
                   ListTileWidget(
                     icon: Icons.access_time,
                     title: 'وقت أذكار المساء',
-                    trailing: AppText(
-                      "5:30 م",
+                    trailing: CustomText(
+                      "3:30 م",
                       color: AppColors.kIconColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w700,

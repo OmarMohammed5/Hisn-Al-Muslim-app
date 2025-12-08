@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
 
 class DefinationOfApp extends StatelessWidget {
   const DefinationOfApp({super.key, required this.isDark});
@@ -15,14 +14,14 @@ class DefinationOfApp extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: const EdgeInsets.all(20),
-        child: AppText(
+        child: Text(
           "تطبيق حصن المسلم هو رفيقك اليومي للحفاظ على الأذكار، "
           "مع إشعارات صباحية ومسائية لتذكيرك دائمًا بذكر الله تعالى، "
           "ويتيح لك الوصول بسهولة إلى أذكار الصباح والمساء وأذكار النوم وفضائل الدعاء.",
-          fontSize: 18,
+
           textAlign: TextAlign.center,
           maxLines: 30,
-          height: 1.8,
+          style: TextStyle(height: 1.8, fontSize: 19),
         ),
       ),
     );

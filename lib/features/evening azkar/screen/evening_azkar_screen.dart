@@ -5,7 +5,7 @@ import 'package:hisn_almuslim/shared/zekr_content_widget.dart';
 import 'package:hisn_almuslim/shared/zekr_header_widget.dart';
 import 'package:hisn_almuslim/shared/zekr_info_widget.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EveningAzkarScreen extends StatefulWidget {
@@ -83,7 +83,7 @@ class _EveningAzkarScreenState extends State<EveningAzkarScreen> {
         backgroundColor: Colors.teal.shade800,
         iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true,
-        title: AppText(
+        title: CustomText(
           "${eveningAzkar['title']}",
           color: Colors.white,
           fontWeight: FontWeight.bold,

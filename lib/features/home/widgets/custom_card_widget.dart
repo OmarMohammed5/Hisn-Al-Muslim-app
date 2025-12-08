@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class CustomCardWidget extends StatelessWidget {
   const CustomCardWidget({
@@ -38,12 +38,12 @@ class CustomCardWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppText(title, fontSize: 14, fontWeight: FontWeight.bold),
+              CustomText(title, fontSize: 14, fontWeight: FontWeight.bold),
               Gap(10),
               Row(
                 spacing: 4,
                 children: [
-                  AppText("اذهب إلى", color: Colors.grey, fontSize: 12),
+                  CustomText("اذهب إلى", color: Colors.grey, fontSize: 12),
                   Icon(
                     Icons.arrow_forward_ios_rounded,
                     color: Colors.grey,

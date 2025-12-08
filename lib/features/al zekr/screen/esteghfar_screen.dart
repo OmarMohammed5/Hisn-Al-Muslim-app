@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/features/al%20zekr/widgets/content_of_esteghfar.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
 
 class EsteghfarScreen extends StatelessWidget {
@@ -16,7 +16,7 @@ class EsteghfarScreen extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.white, size: 25),
         scrolledUnderElevation: 0,
         centerTitle: true,
-        title: AppText(
+        title: CustomText(
           "أستغفر اللّٰه",
           fontSize: 22,
           color: Colors.white,

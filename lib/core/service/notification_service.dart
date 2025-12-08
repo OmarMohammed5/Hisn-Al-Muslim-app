@@ -77,7 +77,7 @@ class NotificationService {
       1,
       "أذكار الصباح ☀️",
       "ابدأ يومك بذكر الله 🤍",
-      _nextInstanceOfTime(7, 0),
+      _nextInstanceOfTime(5, 30),
       NotificationDetails(
         android: AndroidNotificationDetails(
           'morning_channel',
@@ -101,7 +101,7 @@ class NotificationService {
       2,
       "أذكار المساء 🌙",
       "اختم يومك بذكر الله 🤍",
-      _nextInstanceOfTime(17, 30),
+      _nextInstanceOfTime(15, 30),
       NotificationDetails(
         android: AndroidNotificationDetails(
           'evening_channel',

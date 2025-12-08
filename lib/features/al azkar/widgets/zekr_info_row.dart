@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class ZekrInfoRow extends StatelessWidget {
   final int count;
@@ -31,7 +31,7 @@ class ZekrInfoRow extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: AppText("إغلاق", color: Colors.green.shade600),
+            child: CustomText("إغلاق", color: Colors.green.shade600),
           ),
         ],
       ),
@@ -59,7 +59,7 @@ class ZekrInfoRow extends StatelessWidget {
               color: Colors.teal.shade800,
               borderRadius: BorderRadius.circular(6),
             ),
-            child: AppText(
+            child: CustomText(
               "عدد التكرار : $count",
               color: Colors.white,
               fontSize: 15,

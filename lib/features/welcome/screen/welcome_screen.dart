@@ -4,7 +4,7 @@ import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 import 'package:hisn_almuslim/root.dart';
 import 'package:hisn_almuslim/shared/app_logo.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -33,7 +33,7 @@ class WelcomeScreen extends StatelessWidget {
         PageViewModel(
           titleWidget: Padding(
             padding: const EdgeInsets.only(top: 40),
-            child: AppText(
+            child: CustomText(
               "مرحباً بك في حصن المسلم",
               color: isDark ? Colors.white : Colors.black87,
               fontSize: 22,
@@ -42,7 +42,7 @@ class WelcomeScreen extends StatelessWidget {
           ),
           bodyWidget: Padding(
             padding: const EdgeInsets.only(top: 20),
-            child: AppText(
+            child: CustomText(
               "تعرف على أذكارك اليومية بطريقة سهلة ومنظمة",
               color: isDark ? Colors.white54 : Colors.black54,
               fontSize: 17,
@@ -57,7 +57,7 @@ class WelcomeScreen extends StatelessWidget {
         PageViewModel(
           titleWidget: Padding(
             padding: const EdgeInsets.only(top: 40),
-            child: AppText(
+            child: CustomText(
               "اذكر الله",
               color: isDark ? Colors.white : Colors.black87,
               fontSize: 22,
@@ -66,7 +66,7 @@ class WelcomeScreen extends StatelessWidget {
           ),
           bodyWidget: Padding(
             padding: const EdgeInsets.only(top: 20),
-            child: AppText(
+            child: CustomText(
               "استخدم العداد لتسبيح واستغفار مريح وبسيط",
               color: isDark ? Colors.white54 : Colors.black54,
               fontSize: 17,
@@ -90,7 +90,7 @@ class WelcomeScreen extends StatelessWidget {
         PageViewModel(
           titleWidget: Padding(
             padding: const EdgeInsets.only(top: 40),
-            child: AppText(
+            child: CustomText(
               "ابحث عن الأذكار",
               color: isDark ? Colors.white : Colors.black87,
               fontSize: 22,
@@ -99,7 +99,7 @@ class WelcomeScreen extends StatelessWidget {
           ),
           bodyWidget: Padding(
             padding: const EdgeInsets.only(top: 20),
-            child: AppText(
+            child: CustomText(
               "ابحث عن أي ذكر بسهولة داخل التطبيق",
               color: isDark ? Colors.white54 : Colors.black54,
               fontSize: 17,
@@ -121,7 +121,7 @@ class WelcomeScreen extends StatelessWidget {
 
         // Notification of Azkar
         PageViewModel(
-          titleWidget: AppText(
+          titleWidget: CustomText(
             "إشعارات الأذكار",
             color: isDark ? Colors.white : Colors.black87,
             fontSize: 22,
@@ -133,7 +133,7 @@ class WelcomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AppText(
+                CustomText(
                   "فعّل التنبيهات لتصلك أذكار الصباح والمساء في أوقاتها.",
                   color: isDark ? Colors.white54 : Colors.black54,
                   fontSize: 17,
@@ -141,7 +141,7 @@ class WelcomeScreen extends StatelessWidget {
                   height: 1.7,
                   maxLines: 30,
                 ),
-                AppText(
+                CustomText(
                   "يمكنك تفعيل أو إيقاف الإشعارات من إعدادات التطبيق في أي وقت.",
                   color: isDark ? Colors.white54 : Colors.black54,
                   fontSize: 17,
@@ -167,23 +167,23 @@ class WelcomeScreen extends StatelessWidget {
 
       showSkipButton: true,
       showBackButton: true,
-      skip: AppText(
+      skip: CustomText(
         "تخطي",
         color: AppColors.kIconColor,
         fontWeight: FontWeight.bold,
       ),
-      next: AppText(
+      next: CustomText(
         "التالي",
         color: AppColors.kIconColor,
         fontWeight: FontWeight.bold,
       ),
-      back: AppText(
+      back: CustomText(
         "السابق",
         color: AppColors.kIconColor,
         fontWeight: FontWeight.bold,
       ),
       //  Icon(Icons.arrow_forward, color: AppColors.kIconColor, size: 25),
-      done: AppText(
+      done: CustomText(
         "ابدأ الأن",
         fontWeight: FontWeight.bold,
         color: AppColors.kIconColor,

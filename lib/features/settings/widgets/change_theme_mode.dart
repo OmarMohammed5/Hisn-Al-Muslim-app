@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/cubit/cubit/theme_cubit.dart';
+import 'package:hisn_almuslim/shared/custom_snack_bar.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class ChangeThemeMode extends StatelessWidget {
   const ChangeThemeMode({super.key, required this.isDark});
@@ -18,7 +19,7 @@ class ChangeThemeMode extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Align(
             alignment: Alignment.centerRight,
-            child: AppText(
+            child: CustomText(
               "تغيير المظهر",
               color: AppColors.kIconColor,
               fontWeight: FontWeight.bold,
@@ -28,7 +29,7 @@ class ChangeThemeMode extends StatelessWidget {
         ),
         Gap(15),
         ListTile(
-          title: AppText(
+          title: CustomText(
             isDark ? "الوضع الفاتح" : "الوضع الداكن",
             fontSize: 16,
             fontWeight: FontWeight.w600,
@@ -47,18 +48,11 @@ class ChangeThemeMode extends StatelessWidget {
             onChanged: (value) {
               context.read<ThemeCubit>().toggleTheme();
               final message = value
-                  ? " تم التحويل إلى الوضع الليلي  ✅ "
-                  : " تم التحويل إلى الوضع الفاتح  ✅ ";
+                  ? " تم التحويل إلى الوضع الليلي "
+                  : " تم التحويل إلى الوضع الفاتح ";
 
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  backgroundColor: Colors.grey.shade800,
-                  content: AppText(message, color: Colors.white),
-                  behavior: SnackBarBehavior.floating,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
+                customSnackBar(message, Colors.grey.shade800, Icons.check),
               );
             },
           ),

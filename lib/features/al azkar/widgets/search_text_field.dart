@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class SearchTextField extends StatelessWidget {
   const SearchTextField({super.key});
@@ -22,7 +22,7 @@ class SearchTextField extends StatelessWidget {
             color: AppColors.kIconColor,
             size: 30,
           ),
-          hint: AppText(
+          hint: CustomText(
             "ابحث عن ذكر ....",
             color: AppColors.kIconColor,
             fontSize: 16,

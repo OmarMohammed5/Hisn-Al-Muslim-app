@@ -5,7 +5,7 @@ import 'package:hisn_almuslim/core/cubit/cubit/azkar_cubit.dart';
 import 'package:hisn_almuslim/features/al%20azkar/screen/zekr_details_screen.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/azkar_app_bar.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_card_widget.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class AlazkarScreen extends StatefulWidget {
   const AlazkarScreen({super.key});
@@ -67,7 +67,7 @@ class _AlazkarScreenState extends State<AlazkarScreen> {
             );
           } else if (state is AzkarError) {
             return Center(
-              child: AppText(
+              child: CustomText(
                 state.errorMessage,
                 fontSize: 18,
                 color: Colors.red,

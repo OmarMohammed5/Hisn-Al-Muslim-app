@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class ButtonToAddZikr extends StatelessWidget {
   const ButtonToAddZikr({super.key});
@@ -17,7 +17,7 @@ class ButtonToAddZikr extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
-              title: AppText(
+              title: CustomText(
                 "اضافة ذكر",
                 color: Colors.teal.shade700,
                 fontSize: 20,
@@ -47,7 +47,7 @@ class ButtonToAddZikr extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pop(); // إلغاء
                   },
-                  child: AppText(
+                  child: CustomText(
                     "إلغاء",
                     color: Colors.grey.shade700,
                     fontSize: 16,
@@ -63,7 +63,7 @@ class ButtonToAddZikr extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           behavior: SnackBarBehavior.floating,
-                          content: AppText(
+                          content: CustomText(
                             "تمت إضافة الذكر",
                             color: Colors.white,
                             fontSize: 16,
@@ -79,7 +79,7 @@ class ButtonToAddZikr extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: AppText(
+                  child: CustomText(
                     "اضافة",
                     color: Colors.white,
                     fontSize: 16,
@@ -112,7 +112,7 @@ class ButtonToAddZikr extends StatelessWidget {
             children: const [
               Icon(Icons.add, color: Colors.white),
               SizedBox(width: 6),
-              AppText(
+              CustomText(
                 "اضافة ذكر",
                 color: Colors.white,
                 fontWeight: FontWeight.w600,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({super.key, required this.title});
@@ -58,7 +58,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             ),
           ],
         ),
-        child: AppText(
+        child: CustomText(
           title,
           // color: AppColors.kIconColor,
           color: Colors.white,

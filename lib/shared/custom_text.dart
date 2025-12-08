@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppText extends StatelessWidget {
+class CustomText extends StatelessWidget {
   final String text;
   final double fontSize;
   final FontWeight fontWeight;
@@ -9,7 +9,7 @@ class AppText extends StatelessWidget {
   final TextAlign? textAlign;
   final double? height;
 
-  const AppText(
+  const CustomText(
     this.text, {
     super.key,
     this.fontSize = 16,

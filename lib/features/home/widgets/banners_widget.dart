@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/models/azkar_daily.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class BannersWidget extends StatefulWidget {
   const BannersWidget({super.key});
@@ -80,7 +80,7 @@ class _BannersWidgetState extends State<BannersWidget> {
                             : Colors.teal.shade700,
                         borderRadius: BorderRadius.circular(18),
                       ),
-                      child: AppText(
+                      child: CustomText(
                         "ذكر اليوم :",
                         color: Colors.white,
                         fontSize: 14,

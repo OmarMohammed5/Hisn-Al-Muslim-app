@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/cubit/cubit/counter_cubit.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class ZekrCounterCard extends StatelessWidget {
   const ZekrCounterCard({
@@ -18,7 +18,7 @@ class ZekrCounterCard extends StatelessWidget {
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    final screenH = MediaQuery.of(context).size.height;
+    // final screenH = MediaQuery.of(context).size.height;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final screenW = MediaQuery.of(context).size.width;
 
@@ -30,7 +30,6 @@ class ZekrCounterCard extends StatelessWidget {
             context.read<CounterCubit>().add(index);
           },
           child: Container(
-            height: screenH * 0.66,
             width: screenW * 0.46,
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
@@ -71,11 +70,11 @@ class ZekrCounterCard extends StatelessWidget {
                     ],
                   ),
                   Gap(10),
-                  AppText(title, fontSize: 16, maxLines: 3),
-                  Gap(15),
-                  Divider(color: Colors.grey, indent: 35, endIndent: 35),
+                  CustomText(title, fontSize: 15, maxLines: 3),
+                  Gap(10),
+                  Divider(color: Colors.grey, indent: 40, endIndent: 40),
                   Gap(5),
-                  AppText("$count", fontSize: 14),
+                  CustomText("$count", fontSize: 14),
                   Gap(10),
                 ],
               ),

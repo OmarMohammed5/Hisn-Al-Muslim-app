@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hisn_almuslim/helpers/share_helper.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
+import 'package:hisn_almuslim/shared/custom_snack_bar.dart';
 
 class ZekrActionsWidget extends StatelessWidget {
   final Map<String, dynamic> zekr;
@@ -41,6 +42,15 @@ class ZekrActionsWidget extends StatelessWidget {
                   curve: Curves.easeInOut,
                 );
               }
+              if (currentIndex == total - 1) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  customSnackBar(
+                    "لقد وصلت لنهاية الأذكار",
+                    Colors.grey.shade800,
+                    Icons.check,
+                  ),
+                );
+              }
             },
             child: Container(
               width: 120,
@@ -52,7 +62,7 @@ class ZekrActionsWidget extends StatelessWidget {
                 border: Border.all(color: Colors.teal.shade800, width: 4),
               ),
               child: Center(
-                child: AppText(
+                child: CustomText(
                   "التالي",
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -66,16 +76,10 @@ class ZekrActionsWidget extends StatelessWidget {
             onTap: () {
               Clipboard.setData(ClipboardData(text: zekr['text']));
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  backgroundColor: Colors.grey[700],
-                  content: AppText(
-                    "تم نسخ الذكر بنجاح  ✅",
-                    color: Colors.white,
-                  ),
-                  behavior: SnackBarBehavior.floating,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                customSnackBar(
+                  "تم نسخ الذكر بنجاح ",
+                  Colors.grey.shade800,
+                  Icons.check,
                 ),
               );
             },
@@ -92,6 +96,9 @@ class ZekrActionsWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.teal.shade800,
         shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2)),
+        ],
       ),
       child: Icon(icon, color: Colors.white, size: 25),
     );

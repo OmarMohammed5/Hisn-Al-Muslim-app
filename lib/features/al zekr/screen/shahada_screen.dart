@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hisn_almuslim/features/al%20zekr/widgets/content_of_shahada.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class ShahadaScreen extends StatelessWidget {
   const ShahadaScreen({super.key});
@@ -15,7 +15,7 @@ class ShahadaScreen extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.white, size: 25),
         scrolledUnderElevation: 0,
         centerTitle: true,
-        title: AppText(
+        title: CustomText(
           "لا إله إلا اللّٰه",
           fontSize: 22,
           color: Colors.white,

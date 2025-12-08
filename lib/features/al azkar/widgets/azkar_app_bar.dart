@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hisn_almuslim/core/cubit/cubit/azkar_cubit.dart';
 import 'package:hisn_almuslim/features/al%20azkar/screen/zekr_details_screen.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 import 'package:search_page/search_page.dart';
 
 class AzkarAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -50,7 +50,7 @@ class _AzkarAppBarState extends State<AzkarAppBar> {
       backgroundColor: Colors.teal.shade800,
       toolbarHeight: kToolbarHeight,
       iconTheme: const IconThemeData(color: Colors.white),
-      title: const AppText(
+      title: const CustomText(
         "الأذكار",
         fontWeight: FontWeight.bold,
         fontSize: 20,
@@ -72,9 +72,11 @@ class _AzkarAppBarState extends State<AzkarAppBar> {
                   searchStyle: const TextStyle(fontFamily: "Cairo"),
                   barTheme: Theme.of(context),
                   suggestion: const Center(
-                    child: AppText('ابدأ الكتابة للبحث عن ذكر'),
+                    child: CustomText('ابدأ الكتابة للبحث عن ذكر'),
                   ),
-                  failure: const Center(child: AppText('لا توجد نتائج مطابقة')),
+                  failure: const Center(
+                    child: CustomText('لا توجد نتائج مطابقة'),
+                  ),
                   // filter: (zekr) => [
                   //   normalize(zekr.title.toLowerCase()),
                   //   ...zekr.content.map((c) => normalize(c.text.toLowerCase())),
@@ -90,7 +92,7 @@ class _AzkarAppBarState extends State<AzkarAppBar> {
                         : "لا يوجد نتائج متطابقه";
 
                     return ListTile(
-                      title: AppText(
+                      title: CustomText(
                         zekr.title,
                         fontWeight: FontWeight.bold,
                         fontSize: 16,

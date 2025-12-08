@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hisn_almuslim/features/al%20zekr/widgets/content_of_tasbeeh.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
-import 'package:hisn_almuslim/shared/app_text.dart';
+import 'package:hisn_almuslim/shared/custom_text.dart';
 
 class TasbeehScreen extends StatelessWidget {
   const TasbeehScreen({super.key});
@@ -15,7 +15,7 @@ class TasbeehScreen extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.white, size: 25),
         scrolledUnderElevation: 0,
         centerTitle: true,
-        title: AppText(
+        title: CustomText(
           "سبحان اللّٰه",
           fontSize: 22,
           fontWeight: FontWeight.bold,
