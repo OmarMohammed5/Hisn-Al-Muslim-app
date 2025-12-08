@@ -1,5 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/models/content_item.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_actions.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_content.dart';
@@ -12,7 +12,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ZekrDetailsScreen extends StatefulWidget {
   final Zekr zekr;
   final int initialIndex;
-
   const ZekrDetailsScreen({
     super.key,
     required this.zekr,
@@ -92,42 +91,61 @@ class _ZekrDetailsScreenState extends State<ZekrDetailsScreen> {
     if (isLoading || _pageController == null) {
       return Scaffold(
         body: Center(
-          child: CircularProgressIndicator(color: AppColors.kIconColor),
+          child: CupertinoActivityIndicator(
+            color: AppColors.kIconColor,
+            radius: 16,
+          ),
         ),
       );
     }
+
     return Scaffold(
       appBar: CustomAppBar(title: widget.zekr.title, isDark: isDark),
-      body: PageView.builder(
-        controller: _pageController,
-        itemCount: total,
-        onPageChanged: (index) {
-          if (!_isPageInitialized) return; // Dont save before init
-          setState(() => _currentIndex = index);
-          savePage(index);
-        },
+      body: Column(
+        children: [
+          // Header
+          ZekrHeader(currentIndex: _currentIndex, total: total),
 
-        itemBuilder: (context, pageIndex) {
-          final content = contents[pageIndex];
+          // Content (Scrollable)
+          Expanded(
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: total,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+                savePage(index);
+              },
+              itemBuilder: (context, pageIndex) {
+                final content = contents[pageIndex];
+                return ListView(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  children: [
+                    ZekrInfoRow(
+                      count: content.count.length,
+                      source: content.source,
+                    ),
+                    ZekrContent(content: content),
+                  ],
+                );
+              },
+            ),
+          ),
 
-          return Column(
-            children: [
-              ZekrHeader(currentIndex: _currentIndex, total: total),
-              const Gap(20),
-              ZekrInfoRow(count: content.count.length, source: content.source),
-              const Gap(30),
-              Expanded(child: ZekrContent(content: content)),
-              ZekrActions(
-                pageController: _pageController!,
-                currentIndex: _currentIndex,
-                total: total,
-                zekr: widget.zekr,
-                content: content,
-                isDark: isDark,
-              ),
-            ],
-          );
-        },
+          // Actions
+          ZekrActions(
+            pageController: _pageController!,
+            currentIndex: _currentIndex,
+            total: total,
+            zekr: widget.zekr,
+            content: widget.zekr.content[_currentIndex],
+            isDark: isDark,
+          ),
+        ],
       ),
     );
   }

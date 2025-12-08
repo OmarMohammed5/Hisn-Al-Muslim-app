@@ -81,37 +81,53 @@ class _EveningAzkarScreenState extends State<EveningAzkarScreen> {
         ),
       );
     }
+
     return Scaffold(
       appBar: CustomAppBar(title: "${eveningAzkar['title']}", isDark: isDark),
-      body: PageView.builder(
-        controller: _pageController,
-        itemCount: eveningAzkar['content'].length,
-        onPageChanged: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-          savePage(index);
-        },
-        itemBuilder: (BuildContext context, int index) {
-          final zekr = eveningAzkar['content'][index];
-          return Column(
-            children: [
-              ZekrHeaderWidget(
-                currentIndex: _currentIndex,
-                total: eveningAzkar['content'].length,
-                isDark: isDark,
-              ),
-              ZekrInfoWidget(zekr: zekr),
-              ZekrContentWidget(zekr: zekr),
-              ZekrActionsWidget(
-                zekr: zekr,
-                currentIndex: _currentIndex,
-                total: eveningAzkar['content'].length,
-                pageController: _pageController!,
-              ),
-            ],
-          );
-        },
+      body: Column(
+        children: [
+          // Header
+          ZekrHeaderWidget(
+            currentIndex: _currentIndex,
+            total: eveningAzkar['content'].length,
+            isDark: isDark,
+          ),
+
+          // Content (Scrollable)
+          Expanded(
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: eveningAzkar['content'].length,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+                savePage(index);
+              },
+              itemBuilder: (context, index) {
+                final zekr = eveningAzkar['content'][index];
+                return ListView(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  children: [
+                    ZekrInfoWidget(zekr: zekr),
+                    ZekrContentWidget(zekr: zekr),
+                  ],
+                );
+              },
+            ),
+          ),
+
+          // Actions
+          ZekrActionsWidget(
+            zekr: eveningAzkar['content'][_currentIndex],
+            currentIndex: _currentIndex,
+            total: eveningAzkar['content'].length,
+            pageController: _pageController!,
+          ),
+        ],
       ),
     );
   }

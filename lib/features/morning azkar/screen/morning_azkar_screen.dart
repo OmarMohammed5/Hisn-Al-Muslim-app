@@ -82,35 +82,50 @@ class _MorningAzkarScreenState extends State<MorningAzkarScreen> {
 
     return Scaffold(
       appBar: CustomAppBar(title: "${morningAzkar['title']}", isDark: isDark),
-      body: PageView.builder(
-        controller: _pageController,
-        itemCount: morningAzkar['content'].length,
-        onPageChanged: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-          savePage(index); // To Save a new page
-        },
-        itemBuilder: (BuildContext context, int index) {
-          final zekr = morningAzkar['content'][index];
-          return Column(
-            children: [
-              ZekrHeaderWidget(
-                currentIndex: _currentIndex,
-                total: morningAzkar['content'].length,
-                isDark: isDark,
-              ),
-              ZekrInfoWidget(zekr: zekr),
-              ZekrContentWidget(zekr: zekr),
-              ZekrActionsWidget(
-                zekr: zekr,
-                currentIndex: _currentIndex,
-                total: morningAzkar['content'].length,
-                pageController: _pageController!,
-              ),
-            ],
-          );
-        },
+      body: Column(
+        children: [
+          // Header ثابت أعلى الصفحة
+          ZekrHeaderWidget(
+            currentIndex: _currentIndex,
+            total: morningAzkar['content'].length,
+            isDark: isDark,
+          ),
+
+          // Content (Scrollable)
+          Expanded(
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: morningAzkar['content'].length,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+                savePage(index);
+              },
+              itemBuilder: (context, index) {
+                final zekr = morningAzkar['content'][index];
+                return ListView(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  children: [
+                    ZekrInfoWidget(zekr: zekr),
+                    ZekrContentWidget(zekr: zekr),
+                  ],
+                );
+              },
+            ),
+          ),
+
+          // Actions
+          ZekrActionsWidget(
+            zekr: morningAzkar['content'][_currentIndex],
+            currentIndex: _currentIndex,
+            total: morningAzkar['content'].length,
+            pageController: _pageController!,
+          ),
+        ],
       ),
     );
   }
