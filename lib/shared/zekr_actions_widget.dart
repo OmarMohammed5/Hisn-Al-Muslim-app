@@ -32,7 +32,7 @@ class ZekrActionsWidget extends StatelessWidget {
           Icons.info_outline,
           context,
           lightColor: Colors.grey.shade800,
-          darkColor: Colors.white12,
+          darkColor: Colors.grey.shade800,
         ),
       );
     }
@@ -52,7 +52,7 @@ class ZekrActionsWidget extends StatelessWidget {
           Icons.info_outline,
           context,
           lightColor: Colors.grey.shade800,
-          darkColor: Colors.white12,
+          darkColor: Colors.grey.shade800,
         ),
       );
     }

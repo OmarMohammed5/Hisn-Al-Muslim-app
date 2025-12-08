@@ -10,17 +10,43 @@ class AppBarZekr extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return AppBar(
-      backgroundColor: Colors.teal.shade800,
-      shadowColor: AppColors.kIconColor,
-      iconTheme: const IconThemeData(color: Colors.white, size: 25),
-      scrolledUnderElevation: 0,
       centerTitle: true,
-      title: const CustomText(
-        "أذكر اللّٰه",
-        fontSize: 22,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
+      scrolledUnderElevation: 0,
+      backgroundColor: isDark ? Color(0xff222222) : Color(0xfff5f5f5),
+      iconTheme: IconThemeData(
+        size: 27,
+        color: isDark ? Colors.white : Colors.teal.shade700,
+      ),
+      shadowColor: AppColors.kIconColor,
+      title: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: isDark
+                ? [Colors.teal.shade900, Colors.green.shade900]
+                : [Colors.teal.shade400, Colors.green.shade500],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+          ),
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: isDark
+                  ? Colors.black.withValues(alpha: 0.4)
+                  : Colors.green.shade100,
+              blurRadius: 8,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: const CustomText(
+          "أذكر اللّٰه",
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
       ),
     );
   }

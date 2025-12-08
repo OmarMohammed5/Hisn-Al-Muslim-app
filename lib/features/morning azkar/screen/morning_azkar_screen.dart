@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hisn_almuslim/core/models/morning_azkar.dart';
+import 'package:hisn_almuslim/shared/custom_app_bar.dart';
 import 'package:hisn_almuslim/shared/zekr_actions_widget.dart';
 import 'package:hisn_almuslim/shared/zekr_content_widget.dart';
 import 'package:hisn_almuslim/shared/zekr_header_widget.dart';
 import 'package:hisn_almuslim/shared/zekr_info_widget.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
-import 'package:hisn_almuslim/shared/custom_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MorningAzkarScreen extends StatefulWidget {
@@ -81,18 +81,7 @@ class _MorningAzkarScreenState extends State<MorningAzkarScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        scrolledUnderElevation: 0,
-        backgroundColor: Colors.teal.shade800,
-        iconTheme: const IconThemeData(color: Colors.white),
-        centerTitle: true,
-        title: CustomText(
-          "${morningAzkar['title']}",
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
-        ),
-      ),
+      appBar: CustomAppBar(title: "${morningAzkar['title']}", isDark: isDark),
       body: PageView.builder(
         controller: _pageController,
         itemCount: morningAzkar['content'].length,

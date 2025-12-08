@@ -46,16 +46,42 @@ class _AzkarAppBarState extends State<AzkarAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return AppBar(
       scrolledUnderElevation: 0,
-      backgroundColor: Colors.teal.shade800,
+      backgroundColor: isDark ? Color(0xff222222) : Color(0xfff5f5f5),
+      iconTheme: IconThemeData(
+        size: 27,
+        color: isDark ? Colors.white : Colors.teal.shade700,
+      ),
       toolbarHeight: kToolbarHeight,
-      iconTheme: const IconThemeData(color: Colors.white),
-      title: const CustomText(
-        "الأذكار",
-        fontWeight: FontWeight.bold,
-        fontSize: 20,
-        color: Colors.white,
+      title: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: isDark
+                ? [Colors.teal.shade900, Colors.green.shade900]
+                : [Colors.teal.shade400, Colors.green.shade500],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+          ),
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: isDark
+                  ? Colors.black.withValues(alpha: 0.4)
+                  : Colors.green.shade100,
+              blurRadius: 8,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: const CustomText(
+          "الأذكار",
+          fontWeight: FontWeight.bold,
+          fontSize: 20,
+          color: Colors.white,
+        ),
       ),
       actions: [
         GestureDetector(
@@ -63,11 +89,11 @@ class _AzkarAppBarState extends State<AzkarAppBar> {
             FocusScope.of(context).unfocus();
           },
           child: IconButton(
-            icon: const Icon(
+            icon: Icon(
               CupertinoIcons.search,
-              color: Colors.white,
-              weight: 20,
+              color: isDark ? Colors.white : Colors.teal.shade700,
               size: 27,
+              fontWeight: FontWeight.w600,
             ),
             onPressed: () {
               final azkarCubit = context.read<AzkarCubit>();
