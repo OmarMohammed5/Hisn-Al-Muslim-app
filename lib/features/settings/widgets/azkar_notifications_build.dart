@@ -27,7 +27,8 @@ class AzkarNotificationsBuild extends StatelessWidget {
           ),
         ),
         Gap(15),
-        // Morning && Evening Azkar && zekr
+
+        /// Morning + Evening Notifications
         BlocBuilder<NotificationCubit, NotificationState>(
           builder: (context, state) {
             return Column(
@@ -46,25 +47,33 @@ class AzkarNotificationsBuild extends StatelessWidget {
                     inactiveTrackColor: Colors.white,
                     onChanged: (value) {
                       context.read<NotificationCubit>().toggleMorning(value);
-                      final message = value
-                          ? "تم تشغيل أذكار الصباح  "
-                          : "تم إيقاف أذكار الصباح  ";
 
-                      // To display message
+                      final message = value
+                          ? "تم تفعيل أذكار الصباح"
+                          : "تم إيقاف أذكار الصباح";
+
+                      final icon = value
+                          ? Icons.notifications_active_outlined
+                          : Icons.notifications_off_outlined;
+
                       ScaffoldMessenger.of(context).showSnackBar(
                         customSnackBar(
                           message,
-                          value ? Colors.teal.shade700 : Colors.red.shade700,
-                          value
-                              ? Icons.sunny
-                              : Icons.notifications_off_outlined,
+                          icon,
+                          context,
+                          lightColor: value
+                              ? Colors.teal.shade700
+                              : Colors.red.shade700,
+                          darkColor: value
+                              ? Colors.teal.shade900
+                              : Colors.red.shade900,
                         ),
                       );
-                      // print("=========== أذكار الصباح ========== : $value");
                     },
                   ),
                 ),
-                if (state.enableMorning == true)
+
+                if (state.enableMorning)
                   ListTileWidget(
                     icon: Icons.access_time,
                     title: 'وقت أذكار الصباح',
@@ -91,24 +100,31 @@ class AzkarNotificationsBuild extends StatelessWidget {
                       context.read<NotificationCubit>().toggleEvening(value);
 
                       final message = value
-                          ? "تم تشغيل أذكار المساء  "
-                          : "تم إيقاف أذكار المساء  ";
+                          ? "تم تفعيل أذكار المساء"
+                          : "تم إيقاف أذكار المساء";
+
+                      final icon = value
+                          ? Icons.notifications_active_outlined
+                          : Icons.notifications_off_outlined;
 
                       ScaffoldMessenger.of(context).showSnackBar(
                         customSnackBar(
                           message,
-                          value ? Colors.teal.shade700 : Colors.red.shade700,
-                          value
-                              ? Icons.dark_mode_outlined
-                              : Icons.notifications_off_outlined,
+                          icon,
+                          context,
+                          lightColor: value
+                              ? Colors.teal.shade700
+                              : Colors.red.shade700,
+                          darkColor: value
+                              ? Colors.teal.shade900
+                              : Colors.red.shade900,
                         ),
                       );
-
-                      // print("=========== أذكار المساء ========== : $value");
                     },
                   ),
                 ),
-                if (state.enableEvening == true)
+
+                if (state.enableEvening)
                   ListTileWidget(
                     icon: Icons.access_time,
                     title: 'وقت أذكار المساء',
@@ -119,31 +135,6 @@ class AzkarNotificationsBuild extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-
-                // ListTileWidget(
-                //   icon: FlutterIslamicIcons.mohammad,
-                //   title: "الصلاة على النبي ﷺ",
-                //   // subTitle: AppText(
-                //   //   " كل 15 دقيقة",
-                //   //   color: Colors.teal,
-                //   //   fontSize: 12,
-                //   //   height: 1.7,
-                //   // ),
-                //   trailing: Switch(
-                //     value: state.enableZekr,
-                //     activeThumbColor: Colors.white,
-                //     activeTrackColor: AppColors.kIconColor,
-                //     inactiveThumbColor: Colors.black,
-                //     inactiveTrackColor: Colors.white,
-                //     onChanged: (value) {
-                //       context.read<NotificationCubit>().toggleZekr(value);
-                //       // print(
-                //       //   "=========== أذكار الصلاة على النبي ﷺ ========== : $value",
-                //       // );
-                //       // NotificationService.service.testCallback();
-                //     },
-                //   ),
-                // ),
               ],
             );
           },

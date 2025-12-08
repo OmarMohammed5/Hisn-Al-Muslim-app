@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -31,7 +32,10 @@ class _AlazkarScreenState extends State<AlazkarScreen> {
         builder: (context, state) {
           if (state is AzkarLoading) {
             return Center(
-              child: CircularProgressIndicator(color: Colors.teal.shade600),
+              child: CupertinoActivityIndicator(
+                color: Colors.teal.shade600,
+                radius: 16,
+              ),
             );
           } else if (state is AzkarLoaded) {
             return ListView.builder(

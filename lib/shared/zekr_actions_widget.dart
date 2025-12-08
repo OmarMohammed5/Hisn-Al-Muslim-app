@@ -18,89 +18,162 @@ class ZekrActionsWidget extends StatelessWidget {
     required this.pageController,
   });
 
+  // Go to next page
+  void _goToNext(BuildContext context) {
+    if (currentIndex < total - 1) {
+      pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        customSnackBar(
+          "لقد وصلت لنهاية الأذكار",
+          Icons.info_outline,
+          context,
+          lightColor: Colors.grey.shade800,
+          darkColor: Colors.white12,
+        ),
+      );
+    }
+  }
+
+  // Go to previous page
+  void _goToPrevious(BuildContext context) {
+    if (currentIndex > 0) {
+      pageController.previousPage(
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        customSnackBar(
+          "لقد وصلت إلى بداية الأذكار",
+          Icons.info_outline,
+          context,
+          lightColor: Colors.grey.shade800,
+          darkColor: Colors.white12,
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+      margin: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.only(
+          topRight: Radius.circular(100),
+          topLeft: Radius.circular(100),
+          bottomLeft: Radius.circular(100),
+          bottomRight: Radius.circular(100),
+        ),
+        gradient: LinearGradient(
+          colors: [
+            Colors.teal.shade900.withValues(alpha: .90),
+            Colors.teal.shade600.withValues(alpha: 0.75),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+        boxShadow: const [
+          BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 4)),
+        ],
+      ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          // Share
-          GestureDetector(
+          // Share Button
+          _actionButton(
+            icon: Icons.share_outlined,
+            label: "مشاركة",
             onTap: () async {
               await ShareHelper.shareAsImage(context, zekr['text']);
             },
-            child: _circleButton(Icons.share),
           ),
 
-          // Next
-          GestureDetector(
-            onTap: () {
-              if (currentIndex < total - 1) {
-                pageController.nextPage(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                );
-              }
-              if (currentIndex == total - 1) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  customSnackBar(
-                    "لقد وصلت لنهاية الأذكار",
-                    Colors.grey.shade800,
-                    Icons.check,
-                  ),
-                );
-              }
-            },
-            child: Container(
-              width: 120,
-              height: 90,
-              margin: const EdgeInsets.only(bottom: 10),
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.teal.shade800, width: 4),
-              ),
-              child: Center(
-                child: CustomText(
-                  "التالي",
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+          // Previous Button
+          _actionButton(
+            icon: Icons.arrow_back,
+            label: "السابق",
+            isLarge: true,
+            onTap: () => _goToPrevious(context),
           ),
-
-          // Copy
-          GestureDetector(
+          // Next Button
+          _actionButton(
+            icon: Icons.arrow_forward_rounded,
+            label: "التالي",
+            isLarge: true,
+            onTap: () => _goToNext(context),
+          ),
+          // Copy Button
+          _actionButton(
+            icon: Icons.copy_rounded,
+            label: "نسخ",
             onTap: () {
               Clipboard.setData(ClipboardData(text: zekr['text']));
               ScaffoldMessenger.of(context).showSnackBar(
                 customSnackBar(
-                  "تم نسخ الذكر بنجاح ",
-                  Colors.grey.shade800,
-                  Icons.check,
+                  "تم نسخ الذكر بنجاح",
+                  Icons.check_circle,
+                  context,
+                  lightColor: Colors.teal,
+                  darkColor: Colors.teal.shade400,
                 ),
               );
             },
-            child: _circleButton(Icons.copy),
           ),
         ],
       ),
     );
   }
 
-  Widget _circleButton(IconData icon) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.teal.shade800,
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 2)),
+  Widget _actionButton({
+    required IconData icon,
+    required String label,
+    required VoidCallback onTap,
+    bool isLarge = false,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            width: isLarge ? 60 : 45,
+            height: isLarge ? 60 : 45,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: LinearGradient(
+                colors: [
+                  Colors.white.withValues(alpha: 0.25),
+                  Colors.white.withValues(alpha: 0.1),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              border: Border.all(color: Colors.white30),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 6,
+                  offset: Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Icon(icon, color: Colors.white, size: isLarge ? 35 : 28),
+          ),
+          const SizedBox(height: 8),
+          CustomText(
+            label,
+            color: Colors.white,
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+          ),
         ],
       ),
-      child: Icon(icon, color: Colors.white, size: 25),
     );
   }
 }

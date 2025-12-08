@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
@@ -20,8 +21,12 @@ class ShareHelper {
       context: context,
       barrierDismissible: false,
       barrierColor: Colors.black.withValues(alpha: 0.3),
-      builder: (_) =>
-          Center(child: CircularProgressIndicator(color: AppColors.kIconColor)),
+      builder: (_) => Center(
+        child: CupertinoActivityIndicator(
+          color: AppColors.kIconColor,
+          radius: 16,
+        ),
+      ),
     );
     try {
       // Create a widget to capture
@@ -60,8 +65,6 @@ class ShareHelper {
         ),
       );
     } finally {
-      // if (Navigator.of(context, rootNavigator: true).canPop()) {
-      //   Navigator.of(context, rootNavigator: true).pop();
       // ignore: use_build_context_synchronously
       Navigator.of(context).pop();
     }
@@ -91,25 +94,6 @@ Widget _buildZekrCard(String? title) {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Container(
-          //   height: 80,
-          //   width: 80,
-          //   margin: EdgeInsets.all(4),
-          //   padding: EdgeInsets.all(8),
-          //   decoration: BoxDecoration(
-          //     color: Colors.white,
-          //     borderRadius: BorderRadius.circular(20),
-          //   ),
-          //   child: ClipRRect(
-          //     borderRadius: BorderRadius.circular(16),
-          //     child: Image.asset(
-          //       "assets/images/hisn almuslim.png",
-          //       fit: BoxFit.cover,
-          //       filterQuality: FilterQuality.high,
-          //       isAntiAlias: true,
-          //     ),
-          //   ),
-          // ),
           ClipRRect(
             borderRadius: BorderRadius.circular(25),
             child: Image.asset(
@@ -132,15 +116,13 @@ Widget _buildZekrCard(String? title) {
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    // fontFamily: GoogleFonts.scheherazadeNew().fontFamily,
-                    // fontFamily: "Amiri Quran",
+
                     fontFamily: "Cairo",
                     height: 1.55,
                   ),
                 ),
               ),
             ),
-          // const Gap(40),
         ],
       ),
     ),

@@ -28,6 +28,8 @@ class ChangeThemeMode extends StatelessWidget {
           ),
         ),
         Gap(15),
+
+        /// THE LIST TILE
         ListTile(
           title: CustomText(
             isDark ? "الوضع الفاتح" : "الوضع الداكن",
@@ -46,13 +48,28 @@ class ChangeThemeMode extends StatelessWidget {
             inactiveThumbColor: Colors.black,
             inactiveTrackColor: Colors.white,
             onChanged: (value) {
+              /// Change theme
               context.read<ThemeCubit>().toggleTheme();
-              final message = value
-                  ? " تم التحويل إلى الوضع الليلي "
-                  : " تم التحويل إلى الوضع الفاتح ";
 
+              /// Message
+              final message = value
+                  ? "تم تفعيل الوضع الليلي"
+                  : "تم تفعيل الوضع الفاتح";
+
+              /// Icon
+              final icon = value
+                  ? Icons.dark_mode_outlined
+                  : Icons.wb_sunny_outlined;
+
+              /// SnackBar with NEW improved system
               ScaffoldMessenger.of(context).showSnackBar(
-                customSnackBar(message, Colors.grey.shade800, Icons.check),
+                customSnackBar(
+                  message,
+                  icon,
+                  context,
+                  lightColor: Colors.teal.shade700, // Light Mode color
+                  darkColor: Colors.grey.shade800, // Dark Mode color
+                ),
               );
             },
           ),

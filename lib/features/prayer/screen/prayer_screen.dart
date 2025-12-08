@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hisn_almuslim/core/models/azkar_alazan.dart';
 import 'package:hisn_almuslim/shared/zekr_actions_widget.dart';
@@ -73,7 +74,10 @@ class _PrayerScreenState extends State<PrayerScreen> {
     if (isLoading || _pageController == null) {
       return Scaffold(
         body: Center(
-          child: CircularProgressIndicator(color: AppColors.kIconColor),
+          child: CupertinoActivityIndicator(
+            color: AppColors.kIconColor,
+            radius: 16,
+          ),
         ),
       );
     }

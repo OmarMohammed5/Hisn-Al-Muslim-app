@@ -32,7 +32,7 @@ class ZekrCardWidget extends StatelessWidget {
               /// Logo & Title of Zekr
               Expanded(
                 child: Row(
-                  spacing: 8,
+                  spacing: 10,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Center(

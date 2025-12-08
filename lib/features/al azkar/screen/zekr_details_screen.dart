@@ -87,6 +87,7 @@ class _ZekrDetailsScreenState extends State<ZekrDetailsScreen> {
   Widget build(BuildContext context) {
     final contents = widget.zekr.content;
     final total = contents.length;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     /// if it is still loading display >> CircularProgressIndicator
     if (isLoading || _pageController == null) {
@@ -123,6 +124,7 @@ class _ZekrDetailsScreenState extends State<ZekrDetailsScreen> {
                 total: total,
                 zekr: widget.zekr,
                 content: content,
+                isDark: isDark,
               ),
             ],
           );

@@ -47,7 +47,9 @@ class _CardWidgetState extends State<CardWidget> {
       listener: (context, state) async {
         final totalCount = state.values.fold(0, (sum, count) => sum + count);
         // save each time cubit changes
-        await _saveCounter(totalCount + savedTotal);
+        await _saveCounter(
+          totalCount,
+        ); // To return total count or the reset (0) when the user click on the reset button
       },
       child: BlocBuilder<CounterCubit, Map<int, int>>(
         builder: (context, state) {
@@ -121,7 +123,6 @@ class _CardWidgetState extends State<CardWidget> {
 
                             final prefs = await SharedPreferences.getInstance();
                             await prefs.setInt("totalCount", 0);
-
                             // To update a last value  saved
                             setState(() {
                               savedTotal = 0;

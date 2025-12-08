@@ -3,7 +3,6 @@ import 'package:hisn_almuslim/features/home/screen/home_screen.dart';
 import 'package:hisn_almuslim/features/settings/screen/settings_screen.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 
 class Root extends StatefulWidget {
   const Root({super.key});
@@ -29,6 +28,8 @@ class _RootState extends State<Root> {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return PersistentTabView(
+      padding: EdgeInsets.only(top: 2, bottom: 10),
+      margin: EdgeInsets.all(12),
       context,
       controller: _controller,
       screens: _buildScreens(),
@@ -36,46 +37,43 @@ class _RootState extends State<Root> {
         PersistentBottomNavBarItem(
           icon: Padding(
             padding: const EdgeInsets.only(top: 8),
-            child: const Icon(FlutterIslamicIcons.solidQuran2, size: 30),
+            child: const Icon(Icons.home, size: 25),
           ),
           inactiveIcon: Padding(
             padding: const EdgeInsets.only(top: 8),
-            child: const Icon(FlutterIslamicIcons.quran2, size: 30),
+            child: Icon(Icons.home_outlined, size: 25),
           ),
-          title: "حِصْنُ المُسْلِم",
+          title: "الرئيسية",
           textStyle: const TextStyle(
-            fontSize: 14,
+            fontSize: 13,
             fontWeight: FontWeight.w800,
             fontFamily: "Cairo",
           ),
-          activeColorPrimary: Colors.teal.shade700,
-          inactiveColorPrimary: Colors.grey,
+          activeColorPrimary: Color(0xffe7f7ec),
+          inactiveColorPrimary: Colors.grey.shade400,
         ),
 
         PersistentBottomNavBarItem(
           icon: Padding(
             padding: const EdgeInsets.only(top: 8),
-            child: Icon(Icons.settings, size: 30),
+            child: Icon(Icons.settings, size: 25),
           ),
           inactiveIcon: Padding(
             padding: const EdgeInsets.only(top: 8),
-            child: Icon(Icons.settings_outlined, size: 30),
+            child: Icon(Icons.settings_outlined, size: 25),
           ),
-          title: "الإِعْدَادَات",
+          title: "الاعدادات",
           textStyle: const TextStyle(
-            fontSize: 14,
+            fontSize: 13,
             fontWeight: FontWeight.w800,
             fontFamily: "Cairo",
           ),
-          activeColorPrimary: Colors.teal.shade700,
-          inactiveColorPrimary: Colors.grey,
+          activeColorPrimary: Color(0xffe7f7ec),
+          inactiveColorPrimary: Colors.grey.shade400,
         ),
       ],
       decoration: NavBarDecoration(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(100),
-          topRight: Radius.circular(100),
-        ),
+        borderRadius: BorderRadius.circular(100),
         colorBehindNavBar: isDark
             ? Colors.grey.shade900
             : AppColors.kPrimaryColor,
@@ -87,9 +85,9 @@ class _RootState extends State<Root> {
           ),
         ],
       ),
-      backgroundColor: isDark ? Color(0xff2e2e2e) : Colors.white,
-      navBarHeight: kBottomNavigationBarHeight + 8,
-      navBarStyle: NavBarStyle.style14,
+      backgroundColor: isDark ? Color(0xff00593d) : Color(0xff149f81),
+      navBarHeight: kBottomNavigationBarHeight + 10,
+      navBarStyle: NavBarStyle.style6,
       confineToSafeArea: true,
       hideNavigationBarWhenKeyboardAppears: true,
       stateManagement: true,

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hisn_almuslim/core/models/morning_azkar.dart';
 import 'package:hisn_almuslim/shared/zekr_actions_widget.dart';
@@ -71,7 +72,10 @@ class _MorningAzkarScreenState extends State<MorningAzkarScreen> {
     if (isLoading || _pageController == null) {
       return Scaffold(
         body: Center(
-          child: CircularProgressIndicator(color: AppColors.kIconColor),
+          child: CupertinoActivityIndicator(
+            color: AppColors.kIconColor,
+            radius: 16,
+          ),
         ),
       );
     }
