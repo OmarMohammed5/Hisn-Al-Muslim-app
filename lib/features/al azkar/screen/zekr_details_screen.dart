@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/models/content_item.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_actions.dart';
-import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_app_bar.dart'
-    show ZekrAppBar;
 import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_content.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_header.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_info_row.dart';
+import 'package:hisn_almuslim/shared/custom_app_bar.dart';
 import 'package:hisn_almuslim/theme/app_colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -98,7 +97,7 @@ class _ZekrDetailsScreenState extends State<ZekrDetailsScreen> {
       );
     }
     return Scaffold(
-      appBar: ZekrAppBar(title: widget.zekr.title),
+      appBar: CustomAppBar(title: widget.zekr.title, isDark: isDark),
       body: PageView.builder(
         controller: _pageController,
         itemCount: total,

@@ -62,7 +62,7 @@ class ZekrActionsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-      margin: EdgeInsets.all(12),
+      margin: EdgeInsets.only(bottom: 20, left: 16, right: 16),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(
           topRight: Radius.circular(100),

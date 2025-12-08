@@ -9,49 +9,55 @@ class ZekrInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        spacing: 80,
         children: [
-          GestureDetector(
-            onTap: () {
-              showDialog(
-                context: context,
-                builder: (_) => AlertDialog(
-                  title: CustomText(
-                    "معلومات إضافية",
-                    color: Colors.teal.shade800,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (zekr['source'].toString().isNotEmpty)
-                        Text(
-                          "المصدر: ${zekr['source']}",
-                          style: const TextStyle(
-                            fontSize: 15,
-                            height: 1.8,
-                            fontFamily: "Amiri Quran",
+          Center(
+            child: GestureDetector(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: CustomText(
+                      "معلومات إضافية",
+                      color: Colors.teal.shade800,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (zekr['source'].toString().isNotEmpty)
+                          Text(
+                            "المصدر: ${zekr['source']}",
+                            style: const TextStyle(
+                              fontSize: 15,
+                              height: 1.8,
+                              fontFamily: "Amiri Quran",
+                            ),
                           ),
+                      ],
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: CustomText(
+                          "إغلاق",
+                          color: Colors.green.shade600,
                         ),
+                      ),
                     ],
                   ),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: CustomText("إغلاق", color: Colors.green.shade600),
-                    ),
-                  ],
-                ),
-              );
-            },
-            child: Icon(
-              Icons.info_outline,
-              color: Colors.teal.shade800,
-              size: 30,
+                );
+              },
+              child: Icon(
+                Icons.info_outline,
+                color: Colors.teal.shade800,
+                size: 30,
+              ),
             ),
           ),
           Container(
@@ -65,6 +71,16 @@ class ZekrInfoWidget extends StatelessWidget {
               color: Colors.white,
               fontSize: 15,
               fontWeight: FontWeight.w600,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              // Add to Favorite
+            },
+            icon: Icon(
+              Icons.favorite_outline_sharp,
+              color: Colors.teal.shade700,
+              size: 30,
             ),
           ),
         ],
