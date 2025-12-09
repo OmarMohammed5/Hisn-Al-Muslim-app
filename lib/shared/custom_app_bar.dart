@@ -6,7 +6,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool isDark;
   @override
-  Size get preferredSize => Size.fromHeight(70);
+  Size get preferredSize => Size.fromHeight(75);
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -27,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
           ),
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(100),
           boxShadow: [
             BoxShadow(
               color: isDark
@@ -39,11 +39,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ],
         ),
         child: CustomText(
-          // "${morningAzkar['title']}",
           title,
-          // color: AppColors.kIconColor,
           color: Colors.white,
-          fontSize: 20,
+          fontSize: 16,
+          maxLines: 12,
+          height: 1.5,
+          textAlign: TextAlign.center,
           fontWeight: FontWeight.bold,
         ),
       ),

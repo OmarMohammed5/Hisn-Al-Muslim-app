@@ -114,6 +114,10 @@ flutter:
     - family: Amiri Quran
       fonts:
         - asset: assets/fonts/AmiriQuran-Regular.ttf
+    - family: Noto Sans Arabic
+      fonts:
+        - asset: assets/fonts/NotoSansArabic-VariableFont_wdth,wght.ttf
+    
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

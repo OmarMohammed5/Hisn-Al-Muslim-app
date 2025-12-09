@@ -29,7 +29,7 @@ class _RootState extends State<Root> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return PersistentTabView(
       padding: EdgeInsets.only(top: 2, bottom: 10),
-      margin: EdgeInsets.only(bottom: 23, left: 20, right: 20),
+      margin: EdgeInsets.only(bottom: 26, left: 50, right: 50),
       context,
       controller: _controller,
       screens: _buildScreens(),
@@ -73,7 +73,7 @@ class _RootState extends State<Root> {
         ),
       ],
       decoration: NavBarDecoration(
-        borderRadius: BorderRadius.circular(100),
+        borderRadius: BorderRadius.circular(20),
         colorBehindNavBar: isDark
             ? Colors.grey.shade900
             : AppColors.kPrimaryColor,

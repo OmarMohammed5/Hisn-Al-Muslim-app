@@ -35,11 +35,18 @@ class ZekrCardWidget extends StatelessWidget {
                   spacing: 10,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Center(
-                      child: Image.asset(
-                        "assets/images/decoor.png",
-                        fit: BoxFit.cover,
-                        width: 50,
+                    Container(
+                      padding: EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: isDark ? Colors.grey[900] : Colors.grey[200],
+                      ),
+                      child: Center(
+                        child: Image.asset(
+                          "assets/images/decoor.png",
+                          fit: BoxFit.cover,
+                          width: 40,
+                        ),
                       ),
                     ),
                     Expanded(

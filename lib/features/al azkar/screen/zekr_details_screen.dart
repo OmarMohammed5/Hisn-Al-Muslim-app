@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/models/content_item.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_actions.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_content.dart';
@@ -105,6 +106,7 @@ class _ZekrDetailsScreenState extends State<ZekrDetailsScreen> {
         children: [
           // Header
           ZekrHeader(currentIndex: _currentIndex, total: total),
+          Gap(12),
 
           // Content (Scrollable)
           Expanded(
@@ -129,6 +131,7 @@ class _ZekrDetailsScreenState extends State<ZekrDetailsScreen> {
                       count: content.count.length,
                       source: content.source,
                     ),
+                    Gap(20),
                     ZekrContent(content: content),
                   ],
                 );
