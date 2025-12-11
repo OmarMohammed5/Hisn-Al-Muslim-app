@@ -65,7 +65,7 @@ class _CardWidgetState extends State<CardWidget> {
                 borderRadius: BorderRadius.circular(12),
               ),
               elevation: 2,
-              color: isDark ? Colors.grey[850] : Colors.white,
+              color: isDark ? Colors.grey[900] : Colors.white,
               margin: const EdgeInsets.all(12),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -137,7 +137,7 @@ class _CardWidgetState extends State<CardWidget> {
                                 shape: BoxShape.circle,
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black26,
+                                    color: Colors.black12,
                                     blurRadius: 8,
                                     offset: Offset(0, 2),
                                   ),

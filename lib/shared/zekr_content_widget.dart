@@ -10,31 +10,45 @@ class ZekrContentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "${zekr['text']}",
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              height: 2,
-              fontFamily: "Amiri Quran",
+      child: Container(
+        padding: EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.1),
+              blurRadius: 6,
+              offset: const Offset(0, 2),
             ),
-          ),
-          Gap(50),
-          if (zekr['fadl'].isNotEmpty)
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Text(
-              "الفضل: ${zekr['fadl']}",
-              style: TextStyle(
-                fontSize: 15,
+              "${zekr['text']}",
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                height: 2,
                 fontFamily: "Amiri Quran",
-                height: 1.7,
-                fontWeight: FontWeight.bold,
-                color: Colors.teal.shade700,
               ),
             ),
-        ],
+            Gap(50),
+            if (zekr['fadl'].isNotEmpty)
+              Text(
+                "الفضل: ${zekr['fadl']}",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontFamily: "Amiri Quran",
+                  height: 1.7,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.teal.shade700,
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }

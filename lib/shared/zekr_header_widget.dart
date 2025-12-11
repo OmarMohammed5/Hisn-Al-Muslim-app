@@ -18,7 +18,13 @@ class ZekrHeaderWidget extends StatelessWidget {
     return Container(
       height: 45,
       width: double.infinity,
-      color: isDark ? Colors.grey[850] : Colors.grey.shade300,
+      decoration: BoxDecoration(
+        color: isDark ? Colors.black38 : Colors.grey.shade300,
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(60),
+          bottomRight: Radius.circular(60),
+        ),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

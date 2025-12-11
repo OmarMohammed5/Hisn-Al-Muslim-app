@@ -6,7 +6,7 @@ class AppBarZekr extends StatelessWidget implements PreferredSizeWidget {
   const AppBarZekr({super.key});
 
   @override
-  Size get preferredSize => const Size.fromHeight(70);
+  Size get preferredSize => const Size.fromHeight(83);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,13 @@ class AppBarZekr extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: true,
       scrolledUnderElevation: 0,
-      backgroundColor: isDark ? Color(0xff222222) : Color(0xfff5f5f5),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(60),
+          bottomRight: Radius.circular(60),
+        ),
+      ),
+      backgroundColor: isDark ? Colors.black38 : Color(0xfff5f5f5),
       iconTheme: IconThemeData(
         size: 27,
         color: isDark ? Colors.white : Colors.teal.shade700,

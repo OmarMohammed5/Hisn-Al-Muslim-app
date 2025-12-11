@@ -73,7 +73,7 @@ class _RootState extends State<Root> {
         ),
       ],
       decoration: NavBarDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(60),
         colorBehindNavBar: isDark
             ? Colors.grey.shade900
             : AppColors.kPrimaryColor,

@@ -12,7 +12,14 @@ class PrayerForTheProphet extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
-        backgroundColor: isDark ? Color(0xff222222) : Color(0xfff5f5f5),
+        toolbarHeight: 83,
+        backgroundColor: isDark ? Colors.black38 : Color(0xfff5f5f5),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(60),
+            bottomRight: Radius.circular(60),
+          ),
+        ),
         iconTheme: IconThemeData(
           size: 27,
           color: isDark ? Colors.white : Colors.teal.shade700,

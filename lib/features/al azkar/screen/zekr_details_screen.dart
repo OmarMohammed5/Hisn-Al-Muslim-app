@@ -106,7 +106,6 @@ class _ZekrDetailsScreenState extends State<ZekrDetailsScreen> {
         children: [
           // Header
           ZekrHeader(currentIndex: _currentIndex, total: total),
-          Gap(12),
 
           // Content (Scrollable)
           Expanded(
@@ -131,7 +130,7 @@ class _ZekrDetailsScreenState extends State<ZekrDetailsScreen> {
                       count: content.count.length,
                       source: content.source,
                     ),
-                    Gap(20),
+                    Gap(25),
                     ZekrContent(content: content),
                   ],
                 );

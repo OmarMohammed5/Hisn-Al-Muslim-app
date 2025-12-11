@@ -11,7 +11,7 @@ class AzkarAppBar extends StatefulWidget implements PreferredSizeWidget {
   const AzkarAppBar({super.key});
 
   @override
-  Size get preferredSize => const Size.fromHeight(65);
+  Size get preferredSize => const Size.fromHeight(80);
 
   @override
   State<AzkarAppBar> createState() => _AzkarAppBarState();
@@ -49,12 +49,18 @@ class _AzkarAppBarState extends State<AzkarAppBar> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return AppBar(
       scrolledUnderElevation: 0,
-      backgroundColor: isDark ? Color(0xff222222) : Color(0xfff5f5f5),
+      toolbarHeight: kToolbarHeight,
+      backgroundColor: isDark ? Colors.black38 : Color(0xfff5f5f5),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(60),
+          bottomRight: Radius.circular(60),
+        ),
+      ),
       iconTheme: IconThemeData(
         size: 27,
         color: isDark ? Colors.white : Colors.teal.shade700,
       ),
-      toolbarHeight: kToolbarHeight,
       title: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         decoration: BoxDecoration(

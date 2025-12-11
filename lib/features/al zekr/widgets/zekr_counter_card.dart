@@ -33,7 +33,7 @@ class ZekrCounterCard extends StatelessWidget {
             width: screenW * 0.46,
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: isDark ? Colors.grey[850] : Colors.white,
+              color: isDark ? Colors.grey[900] : Colors.white,
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(
