@@ -8,6 +8,7 @@ class Splash extends StatefulWidget {
   const Splash({super.key, required this.seenWelcomeScreen});
 
   final bool seenWelcomeScreen;
+
   @override
   State<Splash> createState() => _SplashState();
 }
@@ -17,6 +18,7 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
   late Animation<double> _scaleAnimation;
   late Animation<double> _fadeAnimation;
   late Animation<Offset> _textSlideAnimation;
+  late Animation<double> _textFadeAnimation;
 
   @override
   void initState() {
@@ -27,45 +29,38 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
       duration: const Duration(milliseconds: 1800),
     );
 
-    // Logo zoom-in
     _scaleAnimation = Tween<double>(
-      begin: 0.0,
+      begin: 0.4,
       end: 1.0,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutExpo));
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
 
-    // Fade for logo
     _fadeAnimation = Tween<double>(
       begin: 0.0,
       end: 1.0,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
 
-    // Text slides from bottom (like movie title/subtitle)
     _textSlideAnimation = Tween<Offset>(
-      begin: const Offset(0, 1),
+      begin: const Offset(0, 0.8),
       end: Offset.zero,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
 
+    _textFadeAnimation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
+
     _controller.forward();
 
-    // Navigate after delay
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       if (widget.seenWelcomeScreen) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (context) {
-              return Root();
-            },
-          ),
+          MaterialPageRoute(builder: (_) => const Root()),
         );
       } else {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: (context) {
-              return WelcomeScreen();
-            },
-          ),
+          MaterialPageRoute(builder: (_) => const WelcomeScreen()),
         );
       }
     });
@@ -79,26 +74,110 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    // final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    ///  Light & Dark Gradients
+    final lightGradient = const LinearGradient(
+      colors: [Color(0xFFE6F5EC), Color(0xFFD9F1E5), Color(0xFFC3EADF)],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+    );
+
+    final darkGradient = LinearGradient(
+      colors: [
+        Colors.teal.shade900,
+        Colors.teal.shade800,
+        Colors.teal.shade700,
+      ],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+    );
+
     return Scaffold(
-      body: Center(
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: isDark ? darkGradient : lightGradient,
+        ),
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            ///  Glow Light / Dark
+            // AnimatedBuilder(
+            //   animation: _controller,
+            //   builder: (context, child) {
+            //     return Container(
+            //       height: 150,
+            //       width: 150,
+            //       decoration: BoxDecoration(
+            //         shape: BoxShape.circle,
+            //         color: isDark
+            //             ? Colors.green.shade400.withValues(
+            //                 alpha: 0.10 * _fadeAnimation.value,
+            //               )
+            //             : Colors.white.withValues(
+            //                 alpha: 0.35 * _fadeAnimation.value,
+            //               ),
+            //         boxShadow: [
+            //           BoxShadow(
+            //             color: isDark
+            //                 ? Colors.greenAccent.withValues(
+            //                     alpha: 0.09 * _fadeAnimation.value,
+            //                   )
+            //                 : Colors.green.shade200.withValues(
+            //                     alpha: 0.18 * _fadeAnimation.value,
+            //                   ),
+            //             blurRadius: 30,
+            //             spreadRadius: 12,
+            //           ),
+            //         ],
+            //       ),
+            //     );
+            //   },
+            // ),
+
+            /// App Logo Animation
             FadeTransition(
               opacity: _fadeAnimation,
-              child: ScaleTransition(scale: _scaleAnimation, child: AppLogo()),
+              child: ScaleTransition(
+                scale: _scaleAnimation,
+                child: const AppLogo(),
+              ),
             ),
-            Gap(40),
-            SlideTransition(
-              position: _textSlideAnimation,
+
+            const Gap(40),
+
+            /// Title
+            FadeTransition(
+              opacity: _textFadeAnimation,
+              child: SlideTransition(
+                position: _textSlideAnimation,
+                child: Text(
+                  "حصن المسلم",
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Cairo",
+                    letterSpacing: 1,
+                    color: isDark ? Colors.white : Colors.green.shade900,
+                  ),
+                ),
+              ),
+            ),
+
+            const Gap(10),
+
+            /// Subtitle
+            FadeTransition(
+              opacity: _textFadeAnimation,
               child: Text(
-                "حصن المسلم",
+                "أذكارك… زاد يومك",
                 style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green.shade900,
+                  fontSize: 16,
                   fontFamily: "Cairo",
+                  fontWeight: FontWeight.w600,
+                  color: isDark ? Colors.white70 : Colors.green.shade700,
                 ),
               ),
             ),
