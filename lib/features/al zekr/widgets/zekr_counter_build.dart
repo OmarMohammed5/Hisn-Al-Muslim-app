@@ -25,10 +25,12 @@ class ZekrCounterBuild extends StatelessWidget {
           index: index,
           onTap: () {
             Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) {
-                  return zekr.screen;
+              PageRouteBuilder(
+                pageBuilder: (_, __, ___) => zekr.screen,
+                transitionsBuilder: (_, animation, __, child) {
+                  return FadeTransition(opacity: animation, child: child);
                 },
+                transitionDuration: Duration(milliseconds: 200),
               ),
             );
           },

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:shimmer/shimmer.dart';
 
 class AzkarShimmerList extends StatelessWidget {
@@ -11,9 +10,10 @@ class AzkarShimmerList extends StatelessWidget {
 
     return ListView.builder(
       padding: const EdgeInsets.only(top: 15),
-      itemCount: 20,
+      itemCount: 10,
       itemBuilder: (context, index) {
         return Column(
+          spacing: 15,
           children: [
             Shimmer.fromColors(
               baseColor: isDark ? Colors.grey.shade800 : Colors.grey.shade300,
@@ -29,8 +29,6 @@ class AzkarShimmerList extends StatelessWidget {
                 ),
               ),
             ),
-
-            Gap(20),
 
             Divider(
               color: isDark ? Colors.white24 : Colors.black26,

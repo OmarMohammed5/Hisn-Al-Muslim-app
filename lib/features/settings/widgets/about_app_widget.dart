@@ -11,10 +11,12 @@ class AboutAppWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context, rootNavigator: true).push(
-          MaterialPageRoute(
-            builder: (context) {
-              return AboutAppScreen();
+          PageRouteBuilder(
+            pageBuilder: (_, __, ___) => AboutAppScreen(),
+            transitionsBuilder: (_, animation, __, child) {
+              return FadeTransition(opacity: animation, child: child);
             },
+            transitionDuration: Duration(milliseconds: 200),
           ),
         );
       },

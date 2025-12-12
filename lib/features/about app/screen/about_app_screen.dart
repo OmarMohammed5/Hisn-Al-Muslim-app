@@ -16,14 +16,7 @@ class AboutAppScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         scrolledUnderElevation: 0,
-        toolbarHeight: 90,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(60),
-            bottomRight: Radius.circular(60),
-          ),
-        ),
-        backgroundColor: isDark ? Colors.black38 : Color(0xffe0e0e0),
+        backgroundColor: isDark ? Color(0xff141414) : Color(0xfff5f5f5),
         iconTheme: IconThemeData(
           size: 27,
           color: isDark ? Colors.white : Colors.teal.shade700,

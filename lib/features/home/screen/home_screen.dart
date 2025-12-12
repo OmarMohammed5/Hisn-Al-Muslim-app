@@ -20,29 +20,32 @@ class _HomeScreenState extends State<HomeScreen> {
     return true;
   }
 
+  late Future<bool> _homeFuture;
+  @override
+  void initState() {
+    super.initState();
+    _homeFuture = loadHomeData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(title: "اَلأذْكَار اَليَومِيّة"),
       body: FutureBuilder(
-        future: loadHomeData(),
+        future: _homeFuture,
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return ShimmerSkeleton();
           }
-          return SingleChildScrollView(
-            child: Column(
-              children: [
-                Gap(10),
-                BannersWidget(),
-                Gap(5),
-
-                /// Card View
-                GridView.builder(
-                  padding: EdgeInsets.all(16),
+          return CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(children: [Gap(10), BannersWidget(), Gap(5)]),
+              ),
+              SliverPadding(
+                padding: EdgeInsets.all(16),
+                sliver: SliverGrid.builder(
                   itemCount: categories.length,
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 16,
@@ -56,18 +59,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: category.icon,
                       onTap: () {
                         Navigator.of(context, rootNavigator: true).push(
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return category.screen;
+                          PageRouteBuilder(
+                            pageBuilder: (_, __, ___) => category.screen,
+                            transitionsBuilder: (_, animation, __, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
                             },
+                            transitionDuration: Duration(milliseconds: 200),
                           ),
                         );
                       },
                     );
                   },
                 ),
-              ],
-            ),
+              ),
+            ],
           );
         },
       ),

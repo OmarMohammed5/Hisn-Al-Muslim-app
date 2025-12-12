@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/cubit/cubit/azkar_cubit.dart';
 import 'package:hisn_almuslim/features/al%20azkar/screen/zekr_details_screen.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/azkar_app_bar.dart';
@@ -40,22 +38,28 @@ class _AlazkarScreenState extends State<AlazkarScreen> {
               itemBuilder: (context, index) {
                 final azkar = state.zekrList[index];
                 return Column(
+                  spacing: 15,
                   children: [
                     ZekrCardWidget(
                       title: azkar.title,
                       onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (_) => ZekrDetailsScreen(
+                        Navigator.of(context, rootNavigator: true).push(
+                          PageRouteBuilder(
+                            pageBuilder: (_, __, ___) => ZekrDetailsScreen(
                               zekr: azkar,
                               initialIndex: index,
                             ),
+                            transitionsBuilder: (_, animation, __, child) {
+                              return FadeTransition(
+                                opacity: animation,
+                                child: child,
+                              );
+                            },
+                            transitionDuration: Duration(milliseconds: 200),
                           ),
                         );
                       },
                     ),
-
-                    Gap(10),
                     Divider(
                       color: isDark ? Colors.white24 : Colors.black26,
                       indent: 20,

@@ -140,11 +140,18 @@ class _AzkarAppBarState extends State<AzkarAppBar> {
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => ZekrDetailsScreen(
+                            PageRouteBuilder(
+                              pageBuilder: (_, __, ___) => ZekrDetailsScreen(
                                 zekr: zekr,
                                 initialIndex: 0,
                               ),
+                              transitionsBuilder: (_, animation, __, child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
+                              transitionDuration: Duration(milliseconds: 200),
                             ),
                           );
                         },
