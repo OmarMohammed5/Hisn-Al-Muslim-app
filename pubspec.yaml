@@ -54,6 +54,7 @@ dependencies:
   search_page: ^2.3.0
   share_plus: ^12.0.0
   shared_preferences: ^2.5.3
+  shimmer: ^3.0.0
   timezone: ^0.10.1
 
 dev_dependencies:
@@ -117,7 +118,6 @@ flutter:
     - family: Noto Sans Arabic
       fonts:
         - asset: assets/fonts/NotoSansArabic-VariableFont_wdth,wght.ttf
-    
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:hisn_almuslim/core/cubit/cubit/azkar_cubit.dart';
 import 'package:hisn_almuslim/features/al%20azkar/screen/zekr_details_screen.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/azkar_app_bar.dart';
+import 'package:hisn_almuslim/features/al%20azkar/widgets/azkar_shimmer_list.dart';
 import 'package:hisn_almuslim/features/al%20azkar/widgets/zekr_card_widget.dart';
 import 'package:hisn_almuslim/shared/custom_text.dart';
 
@@ -31,12 +32,7 @@ class _AlazkarScreenState extends State<AlazkarScreen> {
       body: BlocBuilder<AzkarCubit, AzkarState>(
         builder: (context, state) {
           if (state is AzkarLoading) {
-            return Center(
-              child: CupertinoActivityIndicator(
-                color: Colors.teal.shade600,
-                radius: 16,
-              ),
-            );
+            return AzkarShimmerList();
           } else if (state is AzkarLoaded) {
             return ListView.builder(
               padding: EdgeInsets.only(top: 15),

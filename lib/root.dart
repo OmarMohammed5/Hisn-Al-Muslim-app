@@ -29,7 +29,7 @@ class _RootState extends State<Root> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return PersistentTabView(
       padding: EdgeInsets.only(top: 2, bottom: 10),
-      margin: EdgeInsets.only(bottom: 26, left: 50, right: 50),
+      margin: EdgeInsets.only(bottom: 23, left: 40, right: 40),
       context,
       controller: _controller,
       screens: _buildScreens(),
