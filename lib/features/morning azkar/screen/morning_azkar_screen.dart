@@ -84,7 +84,7 @@ class _MorningAzkarScreenState extends State<MorningAzkarScreen> {
       appBar: CustomAppBar(title: "${morningAzkar['title']}", isDark: isDark),
       body: Column(
         children: [
-          // Header ثابت أعلى الصفحة
+          // Header
           ZekrHeaderWidget(
             currentIndex: _currentIndex,
             total: morningAzkar['content'].length,
