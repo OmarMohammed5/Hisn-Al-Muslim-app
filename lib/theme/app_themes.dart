@@ -92,19 +92,20 @@ class AppThemes {
   static final ThemeData dark = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.blue,
-      brightness: Brightness.dark,
+    colorScheme: const ColorScheme.dark(
+      background: Color(0xFF121212),
+      surface: Color(0xFF121212),
+      surfaceTint: Colors.transparent,
     ),
 
-    scaffoldBackgroundColor: Colors.black12.withValues(alpha: 0.0009),
+    scaffoldBackgroundColor: const Color(0xFF121212),
 
     /// AppBar
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       centerTitle: true,
       elevation: 0,
       toolbarHeight: 65,
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Color(0xFF121212),
       foregroundColor: Colors.white,
     ),
 
