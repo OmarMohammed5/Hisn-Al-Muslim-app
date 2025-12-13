@@ -15,7 +15,7 @@ class Introduction extends StatelessWidget {
 
     Navigator.of(
       context,
-    ).pushReplacement(MaterialPageRoute(builder: (_) => const Root()));
+    ).pushReplacement(MaterialPageRoute(builder: (_) => Root()));
   }
 
   @override

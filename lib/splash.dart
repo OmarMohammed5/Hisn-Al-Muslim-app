@@ -55,7 +55,7 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
       if (widget.seenWelcomeScreen) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (_) => const Root()),
+          MaterialPageRoute(builder: (_) => Root()),
         );
       } else {
         Navigator.pushReplacement(

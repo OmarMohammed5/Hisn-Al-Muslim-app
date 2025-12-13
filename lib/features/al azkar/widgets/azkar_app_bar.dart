@@ -50,7 +50,7 @@ class _AzkarAppBarState extends State<AzkarAppBar> {
     return AppBar(
       scrolledUnderElevation: 0,
       toolbarHeight: kToolbarHeight,
-      backgroundColor: isDark ? Colors.black38 : Color(0xfff5f5f5),
+      backgroundColor: isDark ? Colors.black : Color(0xfff5f5f5),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(60),
@@ -120,8 +120,21 @@ class _AzkarAppBarState extends State<AzkarAppBar> {
                         width: 400,
                       ),
                     ),
-                    failure: const Center(
-                      child: CustomText('لا توجد نتائج مطابقة'),
+                    failure: Center(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 20,
+                        children: [
+                          Image.asset(
+                            "assets/images/empty.png",
+                            fit: BoxFit.cover,
+                            height: 200,
+                            width: 200,
+                          ),
+                          CustomText('لا توجد نتائج مطابقة'),
+                        ],
+                      ),
                     ),
                     // filter: (zekr) => [
                     //   normalize(zekr.title.toLowerCase()),
