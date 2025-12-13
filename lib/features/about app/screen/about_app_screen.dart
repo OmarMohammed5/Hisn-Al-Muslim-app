@@ -16,7 +16,7 @@ class AboutAppScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         scrolledUnderElevation: 0,
-        backgroundColor: isDark ? Colors.black : Color(0xfff5f5f5),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         iconTheme: IconThemeData(
           size: 27,
           color: isDark ? Colors.white : Colors.teal.shade700,

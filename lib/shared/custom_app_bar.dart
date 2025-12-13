@@ -12,7 +12,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: true,
       scrolledUnderElevation: 0,
-      backgroundColor: isDark ? Colors.black38 : Color(0xffe0e0e0),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       iconTheme: IconThemeData(
         size: 27,
         color: isDark ? Colors.white : Colors.teal.shade700,

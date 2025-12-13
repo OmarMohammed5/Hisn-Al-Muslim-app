@@ -50,13 +50,7 @@ class _AzkarAppBarState extends State<AzkarAppBar> {
     return AppBar(
       scrolledUnderElevation: 0,
       toolbarHeight: kToolbarHeight,
-      backgroundColor: isDark ? Colors.black : Color(0xfff5f5f5),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(60),
-          bottomRight: Radius.circular(60),
-        ),
-      ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       iconTheme: IconThemeData(
         size: 27,
         color: isDark ? Colors.white : Colors.teal.shade700,

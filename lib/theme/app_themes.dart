@@ -97,7 +97,7 @@ class AppThemes {
       brightness: Brightness.dark,
     ),
 
-    scaffoldBackgroundColor: Colors.black12.withValues(alpha: 0.005),
+    scaffoldBackgroundColor: Colors.black12.withValues(alpha: 0.0009),
 
     /// AppBar
     appBarTheme: AppBarTheme(

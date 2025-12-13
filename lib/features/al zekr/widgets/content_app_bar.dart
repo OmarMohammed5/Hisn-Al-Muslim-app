@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hisn_almuslim/theme/app_colors.dart';
 import 'package:hisn_almuslim/shared/custom_text.dart';
 
-class AppBarZekr extends StatelessWidget implements PreferredSizeWidget {
-  const AppBarZekr({super.key});
+class ContentAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const ContentAppBar({super.key, required this.title});
 
+  final String title;
   @override
   Size get preferredSize => const Size.fromHeight(83);
 
@@ -12,20 +12,19 @@ class AppBarZekr extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return AppBar(
-      centerTitle: true,
       scrolledUnderElevation: 0,
+      toolbarHeight: 83,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(60),
           bottomRight: Radius.circular(60),
         ),
       ),
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       iconTheme: IconThemeData(
         size: 27,
         color: isDark ? Colors.white : Colors.teal.shade700,
       ),
-      shadowColor: AppColors.kIconColor,
       title: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         decoration: BoxDecoration(
@@ -47,11 +46,11 @@ class AppBarZekr extends StatelessWidget implements PreferredSizeWidget {
             ),
           ],
         ),
-        child: const CustomText(
-          "أذكر اللّٰه",
+        child: CustomText(
+          title,
           fontSize: 22,
-          fontWeight: FontWeight.bold,
           color: Colors.white,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );

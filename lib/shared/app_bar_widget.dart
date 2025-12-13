@@ -12,7 +12,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: true,
       scrolledUnderElevation: 0,
-      backgroundColor: isDark ? Colors.black : Color(0xfff5f5f5),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         decoration: BoxDecoration(
