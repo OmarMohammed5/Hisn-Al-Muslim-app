@@ -50,8 +50,9 @@ class _GlassBottomNavBarState extends State<GlassBottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 11),
       child: Material(
         elevation: 10,
         shadowColor: Colors.black,
@@ -139,9 +140,9 @@ class _GlassBottomNavBarState extends State<GlassBottomNavBar> {
                                 height: 72,
                                 decoration: isSelected
                                     ? BoxDecoration(
-                                        color: Colors.green.shade800.withValues(
-                                          alpha: 0.8,
-                                        ),
+                                        color: isDark
+                                            ? Color(0xff00573d)
+                                            : Color(0xff009b84),
                                         borderRadius: BorderRadius.circular(
                                           100,
                                         ),
